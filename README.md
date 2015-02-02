@@ -3,7 +3,9 @@
 
 * kata 1: [String Calculator - via Roy Osherove](http://osherove.com/tdd-kata-1/ "String Calculator - via Roy Osherove")
 
-## Some sites containing katas:
+## kata resources:
+[12meses12katas](https://github.com/12meses12katas)
+
 [agilekatas.co.uk](http://agilekatas.co.uk/katas/)
 
 [tddkatas.codeplex.com](http://tddkatas.codeplex.com/documentation)
