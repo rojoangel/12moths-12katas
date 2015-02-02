@@ -1,0 +1,23 @@
+{
+    "name": "rojoa/1-string-calculator-kata",
+    "description": "String Calculator Kata",
+    "license": "MIT",
+    "require": {
+        "php": "~5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4",
+        "behat/behat": "~3.0"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Kata": ["src/", "tests/"]
+        }
+    },
+    "authors": [
+        {
+            "name": "rojoangel",
+            "email": "rojo.angel@gmail.com"
+        }
+    ]
+}
