@@ -26,6 +26,8 @@ class StringCalculatorTest extends \PHPUnit_Framework_TestCase {
     {
         return array(
             'empty string' => array('', 0),
+            'one value = 1' => array('1', 1),
+            'one value = 2' => array('2', 2),
         );
     }
 }

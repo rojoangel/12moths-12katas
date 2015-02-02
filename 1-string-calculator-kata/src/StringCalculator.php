@@ -7,7 +7,7 @@ class StringCalculator {
 
     public function add($numbers)
     {
-        return 0;
+        return empty($numbers) ? 0 : $numbers;
     }
 
 } 
