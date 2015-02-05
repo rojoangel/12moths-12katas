@@ -11,3 +11,5 @@
 [tddkatas.codeplex.com](http://tddkatas.codeplex.com/documentation)
 
 [coding-katas-tdd-and-katayunos](http://gonzalo123.com/2011/12/12/coding-katas-tdd-and-katayunos/)
+
+[strategy pattern kata](http://bakingwebsites.co.uk/2013/05/07/strategy-pattern-coding-kata/)
