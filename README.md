@@ -14,4 +14,4 @@
 
 [strategy pattern kata](http://bakingwebsites.co.uk/2013/05/07/strategy-pattern-coding-kata/)
 
-[prime numbers kata]()
+[prime factors kata - via uncle bob](http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata)
