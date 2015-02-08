@@ -67,4 +67,17 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertEquals(50, $updatedItems[0]->getQuality());
     }
+
+    public function testSulfurasBeingALegendaryItemNeverHasToBeSoldOrDecreasesInQuality()
+    {
+        $items = array(
+            new Item("Sulfuras, Hand of Ragnaros", 0, 80),
+        );
+
+        $gildedRose = new GildedRose($items);
+        $updatedItems = $gildedRose->updateQuality();
+
+        $this->assertEquals(0, $updatedItems[0]->getSellIn());
+        $this->assertEquals(80, $updatedItems[0]->getQuality());
+    }
 }
