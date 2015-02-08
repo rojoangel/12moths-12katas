@@ -5,7 +5,7 @@ namespace Kata;
 
 class GildedRose {
 
-    /** @var Item[] $items */
+    /** @var Degradable[] $items */
     private $items;
 
     /**
@@ -13,7 +13,9 @@ class GildedRose {
      */
     public function __construct($items)
     {
-        $this->items = $items;
+        for ($i = 0; $i < count($items) ; $i++) {
+            $this->items[$i] = new DegradableItem($items[$i]);
+        }
     }
 
     public function updateQuality()
