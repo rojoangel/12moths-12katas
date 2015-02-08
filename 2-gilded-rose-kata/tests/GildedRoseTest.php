@@ -28,8 +28,19 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
         $gildedRose = new GildedRose($items);
         $updatedItems = $gildedRose->updateQuality();
 
-        $this->assertEquals(-1, $updatedItems[0]->getSellIn());
         $this->assertEquals(18, $updatedItems[0]->getQuality());
 
+    }
+
+    public function testTheQualityOfAnItemIsNeverNegative()
+    {
+        $items = array(
+            new Item("+5 Dexterity Vest", 10, 0),
+        );
+
+        $gildedRose = new GildedRose($items);
+        $updatedItems = $gildedRose->updateQuality();
+
+        $this->assertEquals(0, $updatedItems[0]->getQuality());
     }
 }
