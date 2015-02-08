@@ -116,4 +116,16 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertEquals(0, $updatedItems[0]->getQuality());
     }
+
+    public function testBackstageDefaultCase()
+    {
+        $items = array(
+            new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20),
+        );
+
+        $gildedRose = new GildedRose($items);
+        $updatedItems = $gildedRose->updateQuality();
+
+        $this->assertEquals(21, $updatedItems[0]->getQuality());
+    }
 }
