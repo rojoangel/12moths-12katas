@@ -19,7 +19,7 @@ class Item {
      * @param integer $sellIn
      * @param integer $quality
      */
-    public function __construct(string $name, integer $sellIn, integer $quality)
+    public function __construct($name, $sellIn, $quality)
     {
         $this->name = $name;
         $this->sellIn = $sellIn;

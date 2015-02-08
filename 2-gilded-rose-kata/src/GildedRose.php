@@ -18,7 +18,7 @@ class GildedRose {
 
     public function updateQuality()
     {
-        for ($i = 0; $i < count($this->items[$i]) ; $i++) {
+        for ($i = 0; $i < count($this->items) ; $i++) {
             if ($this->items[$i]->getName() != "Aged Brie" && $this->items[$i]->getName() != "Backstage passes to a TAFKAL80ETC concert") {
                 if ($this->items[$i]->getQuality() > 0) {
                     if ($this->items[$i]->getName() != "Sulfuras, Hand of Ragnaros") {
@@ -67,5 +67,7 @@ class GildedRose {
                 }
             }
         }
+
+        return $this->items;
     }
 }
