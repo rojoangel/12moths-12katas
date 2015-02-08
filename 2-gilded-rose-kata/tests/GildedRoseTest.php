@@ -8,7 +8,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testAtTheEndOfEachDayOurSystemLowersBothValuesForEveryItem()
     {
         $items = array(
-            new Item("+5 Dexterity Vest", 10, 20),
+            new DegradableItem(new Item("+5 Dexterity Vest", 10, 20)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -22,7 +22,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testOnceTheSellByDateHasPassedQualityDegradesTwiceAsFast()
     {
         $items = array(
-            new Item("+5 Dexterity Vest", 0, 20),
+            new DegradableItem(new Item("+5 Dexterity Vest", 0, 20)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -35,7 +35,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testTheQualityOfAnItemIsNeverNegative()
     {
         $items = array(
-            new Item("+5 Dexterity Vest", 10, 0),
+            new DegradableItem(new Item("+5 Dexterity Vest", 10, 0)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -47,7 +47,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testAgedBrieActuallyIncreasesInQualityTheOlderItGets()
     {
         $items = array(
-            new Item("Aged Brie", 2, 0),
+            new DegradableItem(new Item("Aged Brie", 2, 0)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -59,7 +59,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testTheQualityOfAnItemIsNeverMoreThan50()
     {
         $items = array(
-            new Item("Aged Brie", 2, 50),
+            new DegradableItem(new Item("Aged Brie", 2, 50)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -71,7 +71,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testSulfurasBeingALegendaryItemNeverHasToBeSoldOrDecreasesInQuality()
     {
         $items = array(
-            new Item("Sulfuras, Hand of Ragnaros", 0, 80),
+            new DegradableItem(new Item("Sulfuras, Hand of Ragnaros", 0, 80)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -84,7 +84,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassIncreasesInQualityBy2WhenThereAre10DaysOrlessToTheSellIn()
     {
         $items = array(
-            new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20),
+            new DegradableItem(new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -96,7 +96,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassIncreasesInQualityBy3WhenThereAre5DaysOrlessToTheSellIn()
     {
         $items = array(
-            new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20),
+            new DegradableItem(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -108,7 +108,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassQualityDropsTo0AfterTheConcert()
     {
         $items = array(
-            new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20),
+            new DegradableItem(new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -120,7 +120,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassDefaultCase()
     {
         $items = array(
-            new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20),
+            new DegradableItem(new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20)),
         );
 
         $gildedRose = new GildedRose($items);

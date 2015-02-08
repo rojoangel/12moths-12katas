@@ -9,13 +9,11 @@ class GildedRose {
     private $items;
 
     /**
-     * @param Item[] $items
+     * @param Degradable[] $items
      */
     public function __construct($items)
     {
-        for ($i = 0; $i < count($items) ; $i++) {
-            $this->items[$i] = new DegradableItem($items[$i]);
-        }
+        $this->items = $items;
     }
 
     public function updateQuality()
