@@ -47,7 +47,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testAgedBrieActuallyIncreasesInQualityTheOlderItGets()
     {
         $items = array(
-            new DegradableItem(new Item("Aged Brie", 2, 0)),
+            new AgedBrie(new Item("Aged Brie", 2, 0)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -59,7 +59,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testTheQualityOfAnItemIsNeverMoreThan50()
     {
         $items = array(
-            new DegradableItem(new Item("Aged Brie", 2, 50)),
+            new AgedBrie(new Item("Aged Brie", 2, 50)),
         );
 
         $gildedRose = new GildedRose($items);

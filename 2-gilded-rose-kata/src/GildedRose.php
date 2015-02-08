@@ -51,9 +51,7 @@ class GildedRose {
                         $this->items[$i]->setQuality($this->items[$i]->getQuality() - $this->items[$i]->getQuality());
                     }
                 } else {
-                    if ($this->items[$i]->getQuality() < 50) {
-                        $this->items[$i]->setQuality($this->items[$i]->getQuality() + 1);
-                    }
+                    $this->items[$i]->updateQuantity();
                 }
             }
         }
