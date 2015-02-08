@@ -80,4 +80,17 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals(0, $updatedItems[0]->getSellIn());
         $this->assertEquals(80, $updatedItems[0]->getQuality());
     }
+
+    public function testBackstagePassIncreasesInQualityBy2WhenThereAre10DaysOrlessToTheSellIn()
+    {
+        $items = array(
+            new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20),
+        );
+
+        $gildedRose = new GildedRose($items);
+        $updatedItems = $gildedRose->updateQuality();
+
+        $this->assertEquals(22, $updatedItems[0]->getQuality());
+    }
+
 }
