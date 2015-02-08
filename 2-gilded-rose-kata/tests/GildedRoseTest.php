@@ -84,7 +84,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassIncreasesInQualityBy2WhenThereAre10DaysOrlessToTheSellIn()
     {
         $items = array(
-            new DegradableItem(new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20)),
+            new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -96,7 +96,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassIncreasesInQualityBy3WhenThereAre5DaysOrlessToTheSellIn()
     {
         $items = array(
-            new DegradableItem(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20)),
+            new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -108,7 +108,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassQualityDropsTo0AfterTheConcert()
     {
         $items = array(
-            new DegradableItem(new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)),
+            new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 0, 20)),
         );
 
         $gildedRose = new GildedRose($items);
@@ -120,7 +120,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassDefaultCase()
     {
         $items = array(
-            new DegradableItem(new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20)),
+            new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20)),
         );
 
         $gildedRose = new GildedRose($items);

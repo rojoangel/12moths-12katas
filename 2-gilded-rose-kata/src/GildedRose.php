@@ -30,17 +30,7 @@ class GildedRose {
                     $this->items[$i]->setQuality($this->items[$i]->getQuality() + 1);
 
                     if ($this->items[$i]->getName() == "Backstage passes to a TAFKAL80ETC concert") {
-                        if ($this->items[$i]->getSellIn() < 11) {
-                            if ($this->items[$i]->getQuality() < 50) {
-                                    $this->items[$i]->setQuality($this->items[$i]->getQuality() + 1);
-                            }
-                        }
-
-                        if ($this->items[$i]->getSellIn() < 6) {
-                            if ($this->items[$i]->getQuality() < 50) {
-                                    $this->items[$i]->setQuality($this->items[$i]->getQuality() + 1);
-                            }
-                        }
+                        $this->items[$i]->updateQuantity();
                     }
                 }
             }
