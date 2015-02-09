@@ -30,7 +30,7 @@ class GildedRose {
             }
 
             if ($this->items[$i]->getName() != "Sulfuras, Hand of Ragnaros") {
-                $this->items[$i]->setSellIn($this->items[$i]->getSellIn() - 1);
+                $this->items[$i]->updateSellIn();
             }
 
             if ($this->items[$i]->getSellIn() < 0) {
