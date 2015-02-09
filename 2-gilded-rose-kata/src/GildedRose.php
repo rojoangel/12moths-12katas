@@ -26,7 +26,7 @@ class GildedRose {
                     }
                 }
             } else {
-                $this->items[$i]->updateQuantity();
+                $this->items[$i]->updateQuality();
             }
 
             if ($this->items[$i]->getName() != "Sulfuras, Hand of Ragnaros") {
@@ -42,10 +42,10 @@ class GildedRose {
                             }
                         }
                     } else {
-                        $this->items[$i]->updateQuantity();
+                        $this->items[$i]->updateQuality();
                     }
                 } else {
-                    $this->items[$i]->updateQuantity();
+                    $this->items[$i]->updateQuality();
                 }
             }
         }

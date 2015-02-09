@@ -5,7 +5,7 @@ namespace Kata;
 
 class BackstagePass extends DegradableItem {
 
-    public function updateQuantity()
+    public function updateQuality()
     {
         if ($this->getSellIn() < 0) {
             $this->setQuality(0);

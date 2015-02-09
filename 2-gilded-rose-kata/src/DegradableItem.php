@@ -64,7 +64,7 @@ class DegradableItem implements Degradable {
         $this->item->setSellIn($sellIn);
     }
 
-    public function updateQuantity()
+    public function updateQuality()
     {
         // @todo does nothing
     }

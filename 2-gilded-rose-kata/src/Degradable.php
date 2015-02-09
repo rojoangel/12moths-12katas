@@ -35,6 +35,6 @@ interface Degradable {
      */
     public function setSellIn($sellIn);
 
-    public function updateQuantity();
+    public function updateQuality();
 
 } 
