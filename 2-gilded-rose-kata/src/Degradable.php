@@ -37,4 +37,6 @@ interface Degradable {
 
     public function updateQuality();
 
+    public function updateSellIn();
+
 } 
