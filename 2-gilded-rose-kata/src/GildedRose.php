@@ -29,9 +29,7 @@ class GildedRose {
                 $this->items[$i]->updateQuality();
             }
 
-            if ($this->items[$i]->getName() != "Sulfuras, Hand of Ragnaros") {
-                $this->items[$i]->updateSellIn();
-            }
+            $this->items[$i]->updateSellIn();
 
             if ($this->items[$i]->getSellIn() < 0) {
                 if ($this->items[$i]->getName() != "Aged Brie") {

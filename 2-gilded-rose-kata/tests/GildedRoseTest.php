@@ -71,7 +71,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testSulfurasBeingALegendaryItemNeverHasToBeSoldOrDecreasesInQuality()
     {
         $items = array(
-            new DegradableItem(new Item("Sulfuras, Hand of Ragnaros", 0, 80)),
+            new Sulfuras(new Item("Sulfuras, Hand of Ragnaros", 0, 80)),
         );
 
         $gildedRose = new GildedRose($items);
