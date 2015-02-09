@@ -128,4 +128,28 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertEquals(21, $updatedItems[0]->getQuality());
     }
+
+    public function testConjuredItemQualityDegradesTwoAtTheEndOfTheDay()
+    {
+        $items = array(
+            new ConjuredItem(new Item("ConjuredItem", 12, 20)),
+        );
+
+        $gildedRose = new GildedRose($items);
+        $updatedItems = $gildedRose->updateQuality();
+
+        $this->assertEquals(18, $updatedItems[0]->getQuality());
+    }
+
+    public function testConjuredItemOnceTheSellByDateHasPassedQualityDegradesTwiceAsFast()
+    {
+        $items = array(
+            new ConjuredItem(new Item("ConjuredItem", -1, 20)),
+        );
+
+        $gildedRose = new GildedRose($items);
+        $updatedItems = $gildedRose->updateQuality();
+
+        $this->assertEquals(16, $updatedItems[0]->getQuality());
+    }
 }
