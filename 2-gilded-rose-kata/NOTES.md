@@ -2,3 +2,4 @@
 - Unable to find an easy path to refactor step by step the main class to add the Decorator pattern.
 - If redoing the kata pay special attention to corner cases
 - If redoing the kata I'd probably define all tests for all types
+- Do I need to do anything to force Sulfuras Quality to be stable at 80?
