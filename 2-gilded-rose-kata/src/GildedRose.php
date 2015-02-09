@@ -26,13 +26,7 @@ class GildedRose {
                     }
                 }
             } else {
-                if ($this->items[$i]->getQuality() < 50) {
-                    $this->items[$i]->setQuality($this->items[$i]->getQuality() + 1);
-
-                    if ($this->items[$i]->getName() == "Backstage passes to a TAFKAL80ETC concert") {
-                        $this->items[$i]->updateQuantity();
-                    }
-                }
+                $this->items[$i]->updateQuantity();
             }
 
             if ($this->items[$i]->getName() != "Sulfuras, Hand of Ragnaros") {
@@ -48,7 +42,7 @@ class GildedRose {
                             }
                         }
                     } else {
-                        $this->items[$i]->setQuality($this->items[$i]->getQuality() - $this->items[$i]->getQuality());
+                        $this->items[$i]->updateQuantity();
                     }
                 } else {
                     $this->items[$i]->updateQuantity();
