@@ -66,12 +66,20 @@ class DegradableItem implements Degradable {
 
     public function updateQuality()
     {
-        // @todo does nothing
+        if ($this->item->getQuality() > 0) {
+            $this->item->setQuality($this->item->getQuality() - 1);
+        }
+
+        if ($this->item->getSellIn() < 0) {
+            if ($this->item->getQuality() > 0) {
+                $this->item->setQuality($this->item->getQuality() - 1);
+            }
+        }
     }
 
     public function updateSellIn()
     {
-        $this->item->setSellIn($this->item->getSellIn() -1);
+        $this->item->setSellIn($this->item->getSellIn() - 1);
     }
 
 

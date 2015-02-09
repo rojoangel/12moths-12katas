@@ -120,7 +120,7 @@ class GildedRoseTest extends \PHPUnit_Framework_TestCase {
     public function testBackstagePassDefaultCase()
     {
         $items = array(
-            new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20)),
+            new BackstagePass(new Item("Backstage passes to a TAFKAL80ETC concert", 12, 20)),
         );
 
         $gildedRose = new GildedRose($items);
