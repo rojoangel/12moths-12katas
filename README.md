@@ -8,6 +8,8 @@
 * kata 5: [Bowling Game - via Uncle Bob](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata)
 
 ## kata resources:
+[codekata.com](http://codekata.com)
+
 [12meses12katas](https://github.com/12meses12katas)
 
 [agilekatas.co.uk](http://agilekatas.co.uk/katas/)
