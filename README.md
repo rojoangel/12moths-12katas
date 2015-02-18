@@ -3,6 +3,8 @@
 
 [![Codacy Badge](https://www.codacy.com/project/badge/a95b86273cb44274983c974d80115888)](https://www.codacy.com/public/rojoangel/12moths-12katas)
 [![Build Status](https://travis-ci.org/rojoangel/12moths-12katas.svg?branch=master)](https://travis-ci.org/rojoangel/12moths-12katas)
+[![Code Climate](https://codeclimate.com/github/rojoangel/12moths-12katas/badges/gpa.svg)](https://codeclimate.com/github/rojoangel/12moths-12katas)
+[![Test Coverage](https://codeclimate.com/github/rojoangel/12moths-12katas/badges/coverage.svg)](https://codeclimate.com/github/rojoangel/12moths-12katas)
 
 * kata 1: [Prime Factors - via uncle bob](http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata)
 * kata 2: [Gilded Rose](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/)
