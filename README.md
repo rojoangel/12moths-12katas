@@ -2,6 +2,7 @@
 12 months 12 katas project
 
 [![Codacy Badge](https://www.codacy.com/project/badge/a95b86273cb44274983c974d80115888)](https://www.codacy.com/public/rojoangel/12moths-12katas)
+[![Build Status](https://travis-ci.org/rojoangel/12moths-12katas.svg?branch=master)](https://travis-ci.org/rojoangel/12moths-12katas)
 
 * kata 1: [Prime Factors - via uncle bob](http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata)
 * kata 2: [Gilded Rose](http://iamnotmyself.com/2011/02/13/refactor-this-the-gilded-rose-kata/)
