@@ -9,7 +9,7 @@
 * kata 3: [String Calculator - via Roy Osherove](http://osherove.com/tdd-kata-1/ "String Calculator - via Roy Osherove")
 * kata 4: [Potter Kata](http://nimblepros.com/media/36622/potter%20kata.pdf)
 * kata 5: [Bowling Game - via Uncle Bob](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata)
-
+* kate 6: [Bank Kata - via Sandro Mancuso](https://github.com/sandromancuso/Bank-kata/blob/master/README.md)
 ## kata resources:
 [codekata.com](http://codekata.com)
 
