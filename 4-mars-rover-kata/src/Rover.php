@@ -4,7 +4,8 @@
 namespace Kata;
 
 
-class Rover {
+class Rover
+{
 
     /** @var Direction $direction */
     private $direction;
