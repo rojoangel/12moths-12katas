@@ -64,4 +64,9 @@ class Rover
     {
         $this->direction->turnRight($this);
     }
+
+    public function moveForward()
+    {
+        $this->direction->moveForward($this);
+    }
 }

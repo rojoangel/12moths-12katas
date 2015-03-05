@@ -37,4 +37,9 @@ class Position
     {
         return $this->yCoordinate;
     }
+
+    public function moveYForward()
+    {
+        $this->yCoordinate = $this->yCoordinate + 1;
+    }
 }

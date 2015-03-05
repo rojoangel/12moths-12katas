@@ -62,4 +62,13 @@ class RoverTest extends \PHPUnit_Framework_TestCase
         $rover->turnRight();
         $this->assertInstanceOf('Kata\North', $rover->getDirection());
     }
+
+    public function testRoverFacedNorthAt00CoordinateWhenMovesForwardEndsAt01Coordinate()
+    {
+        $rover = new Rover(new North(), new Position(0, 0));
+        $rover->moveForward();
+        $this->assertEquals(0, $rover->getPosition()->getXCoordinate());
+        $this->assertEquals(1, $rover->getPosition()->getYCoordinate());
+
+    }
 }
