@@ -36,6 +36,6 @@ class East implements Direction
      */
     public function moveBackward(Rover $rover)
     {
-        // TODO: Implement moveBackward() method.
+        $rover->getPosition()->moveXBackward();
     }
 }
