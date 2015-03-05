@@ -10,12 +10,17 @@ class Rover
     /** @var Direction $direction */
     private $direction;
 
+    /** @var Position $position */
+    private $position;
+
     /**
      * @param Direction $direction
+     * @param Position $position
      */
-    public function __construct(Direction $direction)
+    public function __construct(Direction $direction, Position $position)
     {
         $this->direction = $direction;
+        $this->position = $position;
     }
 
     /**
@@ -32,6 +37,22 @@ class Rover
     public function setDirection($direction)
     {
         $this->direction = $direction;
+    }
+
+    /**
+     * @return Position
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param Position $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
     }
 
     public function turnLeft()
