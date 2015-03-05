@@ -30,4 +30,12 @@ class West implements Direction
     {
         $rover->getPosition()->moveXBackward();
     }
+
+    /**
+     * @param Rover $rover
+     */
+    public function moveBackward(Rover $rover)
+    {
+        // TODO: Implement moveBackward() method.
+    }
 }

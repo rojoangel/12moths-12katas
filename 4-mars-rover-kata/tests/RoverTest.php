@@ -90,4 +90,11 @@ class RoverTest extends \PHPUnit_Framework_TestCase
         $rover->moveForward();
         $this->assertEquals(new Position(0, 0), $rover->getPosition());
     }
+
+    public function testRoverFacedNorthAt01CoordinateWhenMovesBackwardEndsAt00Coordinate()
+    {
+        $rover = new Rover(new North(), new Position(0, 1));
+        $rover->moveBackward();
+        $this->assertEquals(new Position(0, 0), $rover->getPosition());
+    }
 }

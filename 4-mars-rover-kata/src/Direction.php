@@ -21,4 +21,9 @@ interface Direction
      * @param Rover $rover
      */
     public function moveForward(Rover $rover);
+
+    /**
+     * @param Rover $rover
+     */
+    public function moveBackward(Rover $rover);
 }

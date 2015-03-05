@@ -31,4 +31,12 @@ class North implements Direction
     {
         $rover->getPosition()->moveYForward();
     }
+
+    /**
+     * @param Rover $rover
+     */
+    public function moveBackward(Rover $rover)
+    {
+        $rover->getPosition()->moveYBackward();
+    }
 }
