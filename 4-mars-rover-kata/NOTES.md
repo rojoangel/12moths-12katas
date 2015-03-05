@@ -53,3 +53,6 @@ Exploring other options at this point & back to 4-mars-rover-kata branch:
 - Refactored Direction turnLeft & turnRight methods to accept a rover param: that makes things a lot easier although seem
 to be a lot of promiscuity between Direction and Rover (i.e. Rover needs to expose getter & setter for Direction)
 
+- Positive point: avoided the Direction to need to know about the Rover at instantiation time: no Rover passed to the
+Direction constructor
+
