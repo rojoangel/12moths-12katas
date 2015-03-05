@@ -34,3 +34,19 @@ class EastTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Kata\North', $newDirection);
     }
 ```
+
+- When adding Landscape I had a to add a lot of code to make the 1st test pass:
+
+```
+    public function testRoverAt00CoordinatesFacingNorthWhenMovesForwardWillBeAt01Coordinates()
+    {
+        $rover = new Rover(new Landscape(0,0,5,5), new North());
+        $rover->moveForward();
+        $this->assertEquals(0, $rover->getCoordinateX());
+        $this->assertEquals(1, $rover->getCoordinateY());
+    }
+```
+I may had been able to take baby steps instead of a big jump forward -> created a new branch 4-mars-rover-kata-alt1
+
+Exploring other options at this point & back to 4-mars-rover-kata
+
