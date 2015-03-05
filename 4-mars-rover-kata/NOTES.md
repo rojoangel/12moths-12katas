@@ -48,5 +48,8 @@ class EastTest extends \PHPUnit_Framework_TestCase
 ```
 I may had been able to take baby steps instead of a big jump forward -> created a new branch 4-mars-rover-kata-alt1
 
-Exploring other options at this point & back to 4-mars-rover-kata
+Exploring other options at this point & back to 4-mars-rover-kata branch:
+
+- Refactored Direction turnLeft & turnRight methods to accept a rover param: that makes things a lot easier although seem
+to be a lot of promiscuity between Direction and Rover (i.e. Rover needs to expose getter & setter for Direction)
 

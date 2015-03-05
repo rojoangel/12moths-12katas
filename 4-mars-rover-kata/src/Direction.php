@@ -8,12 +8,14 @@ interface Direction
 {
 
     /**
+     * @param Rover $rover
      * @return Direction
      */
-    public function turnLeft();
+    public function turnLeft(Rover $rover);
 
     /**
+     * @param Rover $rover
      * @return Direction
      */
-    public function turnRight();
+    public function turnRight(Rover $rover);
 }

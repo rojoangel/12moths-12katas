@@ -7,13 +7,13 @@ namespace Kata;
 class West implements Direction
 {
 
-    public function turnLeft()
+    public function turnLeft(Rover $rover)
     {
-        return new South();
+        $rover->setDirection(new South());
     }
 
-    public function turnRight()
+    public function turnRight(Rover $rover)
     {
-        return new North();
+        $rover->setDirection(new North());
     }
 }
