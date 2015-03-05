@@ -42,4 +42,19 @@ class Position
     {
         $this->yCoordinate = $this->yCoordinate + 1;
     }
+
+    public function moveYBackward()
+    {
+        $this->yCoordinate = $this->yCoordinate - 1;
+    }
+
+    public function moveXForward()
+    {
+        $this->xCoordinate = $this->xCoordinate + 1;
+    }
+
+    public function moveXBackward()
+    {
+        $this->xCoordinate = $this->xCoordinate - 1;
+    }
 }

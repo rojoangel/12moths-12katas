@@ -28,6 +28,6 @@ class West implements Direction
      */
     public function moveForward(Rover $rover)
     {
-        // TODO: Implement moveForward() method.
+        $rover->getPosition()->moveXBackward();
     }
 }

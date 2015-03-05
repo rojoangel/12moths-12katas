@@ -28,6 +28,6 @@ class East implements Direction
      */
     public function moveForward(Rover $rover)
     {
-        // TODO: Implement moveForward() method.
+        $rover->getPosition()->moveXForward();
     }
 }
