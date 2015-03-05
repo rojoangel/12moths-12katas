@@ -1,0 +1,23 @@
+{
+    "name": "rojoa/4-mars-rover-kata",
+    "description": "Mars rover kata",
+    "require": {
+        "php": "~5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "behat/behat": "~3.0"
+    },
+    "license": "MIT",
+    "autoload": {
+      "psr-4" : {
+        "Kata\\": ["src/", "tests/"]
+      }
+    },
+    "authors": [
+        {
+            "name": "rojoangel",
+            "email": "rojo.angel@gmail.com"
+        }
+    ]
+}
