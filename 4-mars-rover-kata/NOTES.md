@@ -1,6 +1,6 @@
 * After creating the rover I had the following doubts as per the State patters as described in Head First Patterns book:
 - Shouldn't the Direction object receive a Rover object when instantiated. I didn't follow this path because it seemed
-to overcomplicate things.
+to over complicate things.
 
 ```
 class East implements Direction
@@ -34,3 +34,16 @@ class EastTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Kata\North', $newDirection);
     }
 ```
+
+- When adding Landscape I had a to add a lot of code to make the 1st test pass:
+
+```
+    public function testRoverAt00CoordinatesFacingNorthWhenMovesForwardWillBeAt01Coordinates()
+    {
+        $rover = new Rover(new Landscape(0,0,5,5), new North());
+        $rover->moveForward();
+        $this->assertEquals(0, $rover->getCoordinateX());
+        $this->assertEquals(1, $rover->getCoordinateY());
+    }
+```
+I may had been able to take baby steps instead of a big jump forward -> created a new branch 4-mars-rover-kata-alt1

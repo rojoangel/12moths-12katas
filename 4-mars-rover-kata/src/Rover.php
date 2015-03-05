@@ -28,11 +28,21 @@ class Rover
         $this->direction = $this->direction->turnRight();
     }
 
+    public function moveForward()
+    {
+        $this->direction = $this->direction->moveForward();
+    }
+
     /**
      * @return Direction
      */
     public function getDirection()
     {
         return $this->direction;
+    }
+
+    public function getPosition()
+    {
+        return $this->direction->getPosition();
     }
 }

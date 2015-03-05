@@ -8,6 +8,11 @@ interface Direction
 {
 
     /**
+     * @return Position
+     */
+    public function getPosition();
+
+    /**
      * @return Direction
      */
     public function turnLeft();
@@ -16,4 +21,9 @@ interface Direction
      * @return Direction
      */
     public function turnRight();
+
+    /**
+     * @return Direction
+     */
+    public function moveForward();
 }
