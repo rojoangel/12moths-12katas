@@ -10,17 +10,17 @@ class Rover
     /** @var Direction $direction */
     private $direction;
 
-    /** @var Position $position */
-    private $position;
+    /** @var Grid $grid */
+    private $grid;
 
     /**
      * @param Direction $direction
-     * @param Position $position
+     * @param Grid $grid
      */
-    public function __construct(Direction $direction, Position $position)
+    public function __construct(Direction $direction, Grid $grid)
     {
         $this->direction = $direction;
-        $this->position = $position;
+        $this->grid = $grid;
     }
 
     /**
@@ -40,19 +40,19 @@ class Rover
     }
 
     /**
+     * @return Grid
+     */
+    public function getGrid()
+    {
+        return $this->grid;
+    }
+
+    /**
      * @return Position
      */
     public function getPosition()
     {
-        return $this->position;
-    }
-
-    /**
-     * @param Position $position
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
+        return $this->getGrid()->getPosition();
     }
 
     public function turnLeft()

@@ -57,4 +57,14 @@ class Position
     {
         $this->xCoordinate = $this->xCoordinate - 1;
     }
+
+    public function resetXCoordinate()
+    {
+        $this->xCoordinate = 0;
+    }
+
+    public function resetYCoordinate()
+    {
+        $this->yCoordinate = 0;
+    }
 }
