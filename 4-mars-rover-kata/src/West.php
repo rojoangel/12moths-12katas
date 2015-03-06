@@ -28,7 +28,7 @@ class West implements Direction
      */
     public function moveForward(Rover $rover)
     {
-        $rover->getPosition()->moveXBackward();
+        $rover->getGrid()->moveXBackward();
     }
 
     /**
@@ -36,6 +36,6 @@ class West implements Direction
      */
     public function moveBackward(Rover $rover)
     {
-        $rover->getPosition()->moveXForward();
+        $rover->getGrid()->moveXForward();
     }
 }

@@ -28,7 +28,7 @@ class East implements Direction
      */
     public function moveForward(Rover $rover)
     {
-        $rover->getPosition()->moveXForward();
+        $rover->getGrid()->moveXForward();
     }
 
     /**
@@ -36,6 +36,6 @@ class East implements Direction
      */
     public function moveBackward(Rover $rover)
     {
-        $rover->getPosition()->moveXBackward();
+        $rover->getGrid()->moveXBackward();
     }
 }

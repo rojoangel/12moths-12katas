@@ -11,10 +11,4 @@ interface Grid
      */
     public function getPosition();
 
-    /**
-     * @param Position $position
-     * @return Position
-     */
-    public function wrapEdge(Position $position);
-
 }

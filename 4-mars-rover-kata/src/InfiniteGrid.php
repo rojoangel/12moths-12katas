@@ -7,12 +7,7 @@ namespace Kata;
 class InfiniteGrid extends PositionableGrid
 {
 
-    /**
-     * @param Position $position
-     * @return Position
-     */
-    public function wrapEdge(Position $position)
+    protected function wrapEdge()
     {
-        return $position;
     }
 }

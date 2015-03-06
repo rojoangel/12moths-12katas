@@ -24,4 +24,31 @@ abstract class PositionableGrid implements Grid
     {
         return $this->position;
     }
+
+    public function moveYForward()
+    {
+        $this->position->moveYForward();
+        $this->wrapEdge();
+    }
+
+    public function moveYBackward()
+    {
+        $this->position->moveYBackward();
+        $this->wrapEdge();
+    }
+
+    public function moveXForward()
+    {
+        $this->position->moveXForward();
+        $this->wrapEdge();
+    }
+
+    public function moveXBackward()
+    {
+        $this->position->moveXBackward();
+        $this->wrapEdge();
+    }
+
+    abstract protected function wrapEdge();
+
 }

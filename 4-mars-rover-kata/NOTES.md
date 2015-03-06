@@ -56,3 +56,18 @@ to be a lot of promiscuity between Direction and Rover (i.e. Rover needs to expo
 - Positive point: avoided the Direction to need to know about the Rover at instantiation time: no Rover passed to the
 Direction constructor
 
+
+Initially thought about implementing 
+```
+new Position(new Grid())
+```
+Later refactored to
+```
+new Grid(new Position())
+```
+That approach enables the Grid to expose a wrapEdges() function that can reposition the rover when off limits
+
+Added an abstract PositionableGrid - not so convinced about the visibility for
+```
+abstract protected function wrapEdge();
+```
