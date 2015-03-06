@@ -1,6 +1,6 @@
 * After creating the rover I had the following doubts as per the State patters as described in Head First Patterns book:
 - Shouldn't the Direction object receive a Rover object when instantiated. I didn't follow this path because it seemed
-to overcomplicate things.
+to over complicate things.
 
 ```
 class East implements Direction
@@ -71,3 +71,5 @@ Added an abstract PositionableGrid - not so convinced about the visibility for
 ```
 abstract protected function wrapEdge();
 ```
+
+I will refactor Grid to implement the strategy pattern although I may keep the abstract PositionableGrid class
