@@ -12,19 +12,14 @@ class Position
     /** @var integer $yCoordinate */
     private $yCoordinate;
 
-    /** @var Grid $grid */
-    private $grid;
-
     /**
      * @param integer $xCoordinate
      * @param integer $yCoordinate
-     * @param $grid
      */
-    public function __construct($xCoordinate, $yCoordinate, $grid)
+    public function __construct($xCoordinate, $yCoordinate)
     {
         $this->xCoordinate = $xCoordinate;
         $this->yCoordinate = $yCoordinate;
-        $this->grid = $grid;
     }
 
     /**

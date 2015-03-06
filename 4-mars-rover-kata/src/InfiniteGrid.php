@@ -4,6 +4,15 @@
 namespace Kata;
 
 
-class InfiniteGrid implements Grid
+class InfiniteGrid extends PositionableGrid
 {
+
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    public function wrapEdge(Position $position)
+    {
+        return $position;
+    }
 }
