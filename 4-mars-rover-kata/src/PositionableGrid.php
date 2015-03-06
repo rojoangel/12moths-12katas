@@ -9,12 +9,9 @@ abstract class PositionableGrid implements Grid
     /** @var Position $position */
     private $position;
 
-    /**
-     * @param Position $position
-     */
-    public function __construct(Position $position)
+    public function __construct()
     {
-        $this->position = $position;
+        $this->position = new Position(0, 0);
     }
 
     /**
@@ -24,6 +21,15 @@ abstract class PositionableGrid implements Grid
     {
         return $this->position;
     }
+
+    /**
+     * @param Position $position
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+    }
+
 
     public function moveYForward()
     {
@@ -50,5 +56,4 @@ abstract class PositionableGrid implements Grid
     }
 
     abstract protected function wrapEdge();
-
 }
