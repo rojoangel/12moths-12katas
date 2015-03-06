@@ -73,3 +73,4 @@ abstract protected function wrapEdge();
 ```
 
 I will refactor Grid to implement the strategy pattern although I may keep the abstract PositionableGrid class
+@todo - remove all the methods from Position and make it a ValueObjec
