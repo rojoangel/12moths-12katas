@@ -11,6 +11,8 @@ class Position
 
     /** @var integer $yCoordinate */
     private $yCoordinate;
+
+    /** @var Grid $grid */
     private $grid;
 
     /**
