@@ -30,30 +30,43 @@ abstract class PositionableGrid implements Grid
         $this->position = $position;
     }
 
-
     public function moveYForward()
     {
-        $this->position->moveYForward();
-        $this->wrapEdge();
+        $this->setPosition(
+            new Position(
+                $this->getPosition()->getXCoordinate(),
+                $this->getPosition()->getYCoordinate() + 1
+            )
+        );
     }
 
     public function moveYBackward()
     {
-        $this->position->moveYBackward();
-        $this->wrapEdge();
+        $this->setPosition(
+            new Position(
+                $this->getPosition()->getXCoordinate(),
+                $this->getPosition()->getYCoordinate() - 1
+            )
+        );
     }
 
     public function moveXForward()
     {
-        $this->position->moveXForward();
-        $this->wrapEdge();
+        $this->setPosition(
+            new Position(
+                $this->getPosition()->getXCoordinate() + 1,
+                $this->getPosition()->getYCoordinate()
+            )
+        );
     }
 
     public function moveXBackward()
     {
-        $this->position->moveXBackward();
-        $this->wrapEdge();
+        $this->setPosition(
+            new Position(
+                $this->getPosition()->getXCoordinate() - 1,
+                $this->getPosition()->getYCoordinate()
+            )
+        );
     }
-
-    abstract protected function wrapEdge();
 }

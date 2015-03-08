@@ -20,20 +20,23 @@ class RectangularGrid extends PositionableGrid
         $this->ySize = $ySize;
     }
 
-    protected function wrapEdge()
+    public function moveYForward()
     {
-        if ($this->getPosition()->getXCoordinate() < 0) {
+        parent::moveYForward();
+
+        if ($this->getPosition()->getYCoordinate() >= $this->ySize) {
             $this->setPosition(
                 new Position(
-                    $this->xSize - 1,
-                    $this->getPosition()->getYCoordinate()
+                    $this->getPosition()->getXCoordinate(),
+                    0
                 )
             );
         }
+    }
 
-        if ($this->getPosition()->getXCoordinate() >= $this->xSize) {
-            $this->getPosition()->resetXCoordinate();
-        }
+    public function moveYBackward()
+    {
+        parent::moveYBackward();
 
         if ($this->getPosition()->getYCoordinate() < 0) {
             $this->setPosition(
@@ -43,11 +46,33 @@ class RectangularGrid extends PositionableGrid
                 )
             );
         }
-
-        if ($this->getPosition()->getYCoordinate() >= $this->ySize) {
-            $this->getPosition()->resetYCoordinate();
-        }
-
     }
 
+    public function moveXForward()
+    {
+        parent::moveXForward();
+
+        if ($this->getPosition()->getXCoordinate() >= $this->xSize) {
+            $this->setPosition(
+                new Position(
+                    0,
+                    $this->getPosition()->getYCoordinate()
+                )
+            );
+        }
+    }
+
+    public function moveXBackward()
+    {
+        parent::moveXBackward();
+
+        if ($this->getPosition()->getXCoordinate() < 0) {
+            $this->setPosition(
+                new Position(
+                    $this->xSize - 1,
+                    $this->getPosition()->getYCoordinate()
+                )
+            );
+        }
+    }
 }
