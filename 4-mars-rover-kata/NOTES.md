@@ -75,4 +75,4 @@ abstract protected function wrapEdge();
 Refactored position as a ValueObject:
 as a result of it moved all the \Kata\RectangularGrid::wrapEdge to the corresponding \Kata\RectangularGrid::move* methods
 
-@todo refactor Grid to implement the strategy pattern although I may keep the abstract PositionableGrid class
+Refactored Grid to implement the strategy pattern although I kept the abstract PositionableGrid class
