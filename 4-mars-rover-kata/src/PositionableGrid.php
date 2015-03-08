@@ -6,54 +6,44 @@ namespace Kata;
 
 abstract class PositionableGrid implements Grid
 {
-    /** @var Position $position */
-    private $position;
 
-    public function __construct()
+    public function moveYForward(Rover $rover)
     {
-        $this->position = new Position(0, 0);
+        $rover->setPosition(
+            new Position(
+                $rover->getPosition()->getXCoordinate(),
+                $rover->getPosition()->getYCoordinate() + 1
+            )
+        );
     }
 
-    /**
-     * @return Position
-     */
-    public function getPosition()
+    public function moveYBackward(Rover $rover)
     {
-        return $this->position;
+        $rover->setPosition(
+            new Position(
+                $rover->getPosition()->getXCoordinate(),
+                $rover->getPosition()->getYCoordinate() - 1
+            )
+        );
     }
 
-    /**
-     * @param Position $position
-     */
-    public function setPosition($position)
+    public function moveXForward(Rover $rover)
     {
-        $this->position = $position;
+        $rover->setPosition(
+            new Position(
+                $rover->getPosition()->getXCoordinate() + 1,
+                $rover->getPosition()->getYCoordinate()
+            )
+        );
     }
 
-
-    public function moveYForward()
+    public function moveXBackward(Rover $rover)
     {
-        $this->position->moveYForward();
-        $this->wrapEdge();
+        $rover->setPosition(
+            new Position(
+                $rover->getPosition()->getXCoordinate() - 1,
+                $rover->getPosition()->getYCoordinate()
+            )
+        );
     }
-
-    public function moveYBackward()
-    {
-        $this->position->moveYBackward();
-        $this->wrapEdge();
-    }
-
-    public function moveXForward()
-    {
-        $this->position->moveXForward();
-        $this->wrapEdge();
-    }
-
-    public function moveXBackward()
-    {
-        $this->position->moveXBackward();
-        $this->wrapEdge();
-    }
-
-    abstract protected function wrapEdge();
 }

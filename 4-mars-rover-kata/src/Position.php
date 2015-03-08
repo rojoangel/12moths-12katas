@@ -37,34 +37,4 @@ class Position
     {
         return $this->yCoordinate;
     }
-
-    public function moveYForward()
-    {
-        $this->yCoordinate = $this->yCoordinate + 1;
-    }
-
-    public function moveYBackward()
-    {
-        $this->yCoordinate = $this->yCoordinate - 1;
-    }
-
-    public function moveXForward()
-    {
-        $this->xCoordinate = $this->xCoordinate + 1;
-    }
-
-    public function moveXBackward()
-    {
-        $this->xCoordinate = $this->xCoordinate - 1;
-    }
-
-    public function resetXCoordinate()
-    {
-        $this->xCoordinate = 0;
-    }
-
-    public function resetYCoordinate()
-    {
-        $this->yCoordinate = 0;
-    }
 }
