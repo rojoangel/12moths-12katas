@@ -6,66 +6,43 @@ namespace Kata;
 
 abstract class PositionableGrid implements Grid
 {
-    /** @var Position $position */
-    private $position;
 
-    public function __construct()
+    public function moveYForward(Rover $rover)
     {
-        $this->position = new Position(0, 0);
-    }
-
-    /**
-     * @return Position
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
-     * @param Position $position
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-    }
-
-    public function moveYForward()
-    {
-        $this->setPosition(
+        $rover->setPosition(
             new Position(
-                $this->getPosition()->getXCoordinate(),
-                $this->getPosition()->getYCoordinate() + 1
+                $rover->getPosition()->getXCoordinate(),
+                $rover->getPosition()->getYCoordinate() + 1
             )
         );
     }
 
-    public function moveYBackward()
+    public function moveYBackward(Rover $rover)
     {
-        $this->setPosition(
+        $rover->setPosition(
             new Position(
-                $this->getPosition()->getXCoordinate(),
-                $this->getPosition()->getYCoordinate() - 1
+                $rover->getPosition()->getXCoordinate(),
+                $rover->getPosition()->getYCoordinate() - 1
             )
         );
     }
 
-    public function moveXForward()
+    public function moveXForward(Rover $rover)
     {
-        $this->setPosition(
+        $rover->setPosition(
             new Position(
-                $this->getPosition()->getXCoordinate() + 1,
-                $this->getPosition()->getYCoordinate()
+                $rover->getPosition()->getXCoordinate() + 1,
+                $rover->getPosition()->getYCoordinate()
             )
         );
     }
 
-    public function moveXBackward()
+    public function moveXBackward(Rover $rover)
     {
-        $this->setPosition(
+        $rover->setPosition(
             new Position(
-                $this->getPosition()->getXCoordinate() - 1,
-                $this->getPosition()->getYCoordinate()
+                $rover->getPosition()->getXCoordinate() - 1,
+                $rover->getPosition()->getYCoordinate()
             )
         );
     }

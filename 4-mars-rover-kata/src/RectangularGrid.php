@@ -15,62 +15,61 @@ class RectangularGrid extends PositionableGrid
 
     public function __construct($xSize, $ySize)
     {
-        parent::__construct();
         $this->xSize = $xSize;
         $this->ySize = $ySize;
     }
 
-    public function moveYForward()
+    public function moveYForward(Rover $rover)
     {
-        parent::moveYForward();
+        parent::moveYForward($rover);
 
-        if ($this->getPosition()->getYCoordinate() >= $this->ySize) {
-            $this->setPosition(
+        if ($rover->getPosition()->getYCoordinate() >= $this->ySize) {
+            $rover->setPosition(
                 new Position(
-                    $this->getPosition()->getXCoordinate(),
+                    $rover->getPosition()->getXCoordinate(),
                     0
                 )
             );
         }
     }
 
-    public function moveYBackward()
+    public function moveYBackward(Rover $rover)
     {
-        parent::moveYBackward();
+        parent::moveYBackward($rover);
 
-        if ($this->getPosition()->getYCoordinate() < 0) {
-            $this->setPosition(
+        if ($rover->getPosition()->getYCoordinate() < 0) {
+            $rover->setPosition(
                 new Position(
-                    $this->getPosition()->getXCoordinate(),
+                    $rover->getPosition()->getXCoordinate(),
                     $this->ySize - 1
                 )
             );
         }
     }
 
-    public function moveXForward()
+    public function moveXForward(Rover $rover)
     {
-        parent::moveXForward();
+        parent::moveXForward($rover);
 
-        if ($this->getPosition()->getXCoordinate() >= $this->xSize) {
-            $this->setPosition(
+        if ($rover->getPosition()->getXCoordinate() >= $this->xSize) {
+            $rover->setPosition(
                 new Position(
                     0,
-                    $this->getPosition()->getYCoordinate()
+                    $rover->getPosition()->getYCoordinate()
                 )
             );
         }
     }
 
-    public function moveXBackward()
+    public function moveXBackward(Rover $rover)
     {
-        parent::moveXBackward();
+        parent::moveXBackward($rover);
 
-        if ($this->getPosition()->getXCoordinate() < 0) {
-            $this->setPosition(
+        if ($rover->getPosition()->getXCoordinate() < 0) {
+            $rover->setPosition(
                 new Position(
                     $this->xSize - 1,
-                    $this->getPosition()->getYCoordinate()
+                    $rover->getPosition()->getYCoordinate()
                 )
             );
         }

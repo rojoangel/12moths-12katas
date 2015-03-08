@@ -6,16 +6,12 @@ namespace Kata;
 
 interface Grid
 {
-    /**
-     * @return Position
-     */
-    public function getPosition();
 
-    public function moveYForward();
+    public function moveYForward(Rover $rover);
 
-    public function moveYBackward();
+    public function moveYBackward(Rover $rover);
 
-    public function moveXForward();
+    public function moveXForward(Rover $rover);
 
-    public function moveXBackward();
+    public function moveXBackward(Rover $rover);
 }
