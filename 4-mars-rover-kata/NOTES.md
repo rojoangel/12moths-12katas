@@ -72,6 +72,7 @@ Added an abstract PositionableGrid - not so convinced about the visibility for
 abstract protected function wrapEdge();
 ```
 
+Refactored position as a ValueObject
+
 I will refactor Grid to implement the strategy pattern although I may keep the abstract PositionableGrid class
-@todo - remove all the methods from Position and make it a ValueObject
 @todo - move all the ifs @ \Kata\RectangularGrid::wrapEdge to the corresponding move* methods
