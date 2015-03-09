@@ -3,8 +3,6 @@
 
 namespace Kata\Grid;
 
-
-use Kata\Grid\PositionableGrid;
 use Kata\Position;
 use Kata\Rover;
 
