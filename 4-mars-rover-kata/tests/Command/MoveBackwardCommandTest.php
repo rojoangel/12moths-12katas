@@ -31,5 +31,4 @@ class MoveBackwardCommandTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(new Position(0, 0), $rover->getPosition());
     }
-
 }

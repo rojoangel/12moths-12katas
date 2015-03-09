@@ -7,19 +7,8 @@ namespace Kata\Command;
 use Kata\Command;
 use Kata\Rover;
 
-class TurnRightCommand implements Command
+class TurnRightCommand extends AbstractCommand
 {
-
-    /** @var Rover $rover */
-    private $rover;
-
-    /**
-     * @param Rover $rover
-     */
-    public function __construct($rover)
-    {
-        $this->rover = $rover;
-    }
 
     public function execute()
     {
