@@ -4,6 +4,8 @@
 namespace Kata;
 
 
+use Kata\Direction;
+
 class Rover
 {
 

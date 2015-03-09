@@ -1,8 +1,12 @@
 <?php
 
 
-namespace Kata;
+namespace Kata\Grid;
 
+
+use Kata\Grid\PositionableGrid;
+use Kata\Position;
+use Kata\Rover;
 
 class RectangularGrid extends PositionableGrid
 {

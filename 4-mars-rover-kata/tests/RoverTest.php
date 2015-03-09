@@ -4,6 +4,13 @@
 namespace Kata;
 
 
+use Kata\Direction\East;
+use Kata\Direction\North;
+use Kata\Direction\South;
+use Kata\Direction\West;
+use Kata\Grid\InfiniteGrid;
+use Kata\Grid\RectangularGrid;
+
 class RoverTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -12,56 +19,56 @@ class RoverTest extends \PHPUnit_Framework_TestCase
 
         $rover = new Rover(new North(), new Position(0, 0), new InfiniteGrid());
         $rover->turnLeft();
-        $this->assertInstanceOf('Kata\West', $rover->getDirection());
+        $this->assertInstanceOf('Kata\Direction\West', $rover->getDirection());
     }
 
     public function testRoverFacedNorthWhenTurnsRightFacesEast()
     {
         $rover = new Rover(new North(), new Position(0, 0), new InfiniteGrid());
         $rover->turnRight();
-        $this->assertInstanceOf('Kata\East', $rover->getDirection());
+        $this->assertInstanceOf('Kata\Direction\East', $rover->getDirection());
     }
 
     public function testRoverFacedSouthWhenTurnsLeftFacesEast()
     {
         $rover = new Rover(new South(), new Position(0, 0), new InfiniteGrid());
         $rover->turnLeft();
-        $this->assertInstanceOf('Kata\East', $rover->getDirection());
+        $this->assertInstanceOf('Kata\Direction\East', $rover->getDirection());
     }
 
     public function testRoverFacedSouthWhenTurnsRightFacesWest()
     {
         $rover = new Rover(new South(), new Position(0, 0), new InfiniteGrid());
         $rover->turnRight();
-        $this->assertInstanceOf('Kata\West', $rover->getDirection());
+        $this->assertInstanceOf('Kata\Direction\West', $rover->getDirection());
     }
 
     public function testRoverFacedEastWhenTurnsLeftFacesNorth()
     {
         $rover = new Rover(new East(), new Position(0, 0), new InfiniteGrid());
         $rover->turnLeft();
-        $this->assertInstanceOf('Kata\North', $rover->getDirection());
+        $this->assertInstanceOf('Kata\Direction\North', $rover->getDirection());
     }
 
     public function testRoverFacedEastWhenTurnsRightFacesSouth()
     {
         $rover = new Rover(new East(), new Position(0, 0), new InfiniteGrid());
         $rover->turnRight();
-        $this->assertInstanceOf('Kata\South', $rover->getDirection());
+        $this->assertInstanceOf('Kata\Direction\South', $rover->getDirection());
     }
 
     public function testRoverFacedWestWhenTurnsLeftFacesSouth()
     {
         $rover = new Rover(new West(), new Position(0, 0), new InfiniteGrid());
         $rover->turnLeft();
-        $this->assertInstanceOf('Kata\South', $rover->getDirection());
+        $this->assertInstanceOf('Kata\Direction\South', $rover->getDirection());
     }
 
     public function testRoverFacedWestWhenTurnsRightFacesNorth()
     {
         $rover = new Rover(new West(), new Position(0, 0), new InfiniteGrid());
         $rover->turnRight();
-        $this->assertInstanceOf('Kata\North', $rover->getDirection());
+        $this->assertInstanceOf('Kata\Direction\North', $rover->getDirection());
     }
 
     public function testRoverFacedNorthAt00CoordinateWhenMovesForwardEndsAt01Coordinate()

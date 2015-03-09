@@ -4,6 +4,8 @@
 namespace Kata;
 
 
+
+
 interface Direction
 {
 
