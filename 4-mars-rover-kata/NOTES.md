@@ -78,3 +78,4 @@ as a result of it moved all the \Kata\Grid\RectangularGrid::wrapEdge to the corr
 Refactored Grid to implement the strategy pattern although I kept the abstract PositionableGrid class
 
 Implemented NullCommand using Null Object Design Pattern
+@todo - command parser needs to know about the Rover - review this decision
