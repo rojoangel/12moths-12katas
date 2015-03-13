@@ -83,4 +83,4 @@ and the following line looks weird
 ```
         $roverController = new RoverController($rover, new CommandParser($rover));
 ```
-
+@todo add obstacles
