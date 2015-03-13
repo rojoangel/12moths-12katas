@@ -79,3 +79,8 @@ Refactored Grid to implement the strategy pattern although I kept the abstract P
 
 Implemented NullCommand using Null Object Design Pattern
 @todo - command parser needs to know about the Rover - review this decision
+and the following line looks weird
+```
+        $roverController = new RoverController($rover, new CommandParser($rover));
+```
+
