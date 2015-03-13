@@ -76,3 +76,5 @@ Refactored position as a ValueObject:
 as a result of it moved all the \Kata\Grid\RectangularGrid::wrapEdge to the corresponding \Kata\Grid\RectangularGrid::move* methods
 
 Refactored Grid to implement the strategy pattern although I kept the abstract PositionableGrid class
+
+Implemented NullCommand using Null Object Design Pattern
