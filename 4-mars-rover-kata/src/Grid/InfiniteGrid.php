@@ -1,8 +1,7 @@
 <?php
 
 
-namespace Kata;
-
+namespace Kata\Grid;
 
 class InfiniteGrid extends PositionableGrid
 {

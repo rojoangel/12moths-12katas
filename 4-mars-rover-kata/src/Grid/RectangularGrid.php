@@ -1,8 +1,10 @@
 <?php
 
 
-namespace Kata;
+namespace Kata\Grid;
 
+use Kata\Position;
+use Kata\Rover;
 
 class RectangularGrid extends PositionableGrid
 {
@@ -22,7 +24,32 @@ class RectangularGrid extends PositionableGrid
     public function moveYForward(Rover $rover)
     {
         parent::moveYForward($rover);
+        $this->wrapTopYEdge($rover);
+    }
 
+    public function moveYBackward(Rover $rover)
+    {
+        parent::moveYBackward($rover);
+        $this->wrapBottomYEdge($rover);
+    }
+
+    public function moveXForward(Rover $rover)
+    {
+        parent::moveXForward($rover);
+        $this->wrapXTopEdge($rover);
+    }
+
+    public function moveXBackward(Rover $rover)
+    {
+        parent::moveXBackward($rover);
+        $this->wrapXBottomEdge($rover);
+    }
+
+    /**
+     * @param Rover $rover
+     */
+    private function wrapTopYEdge(Rover $rover)
+    {
         if ($rover->getPosition()->getYCoordinate() >= $this->ySize) {
             $rover->setPosition(
                 new Position(
@@ -33,10 +60,11 @@ class RectangularGrid extends PositionableGrid
         }
     }
 
-    public function moveYBackward(Rover $rover)
+    /**
+     * @param Rover $rover
+     */
+    private function wrapBottomYEdge(Rover $rover)
     {
-        parent::moveYBackward($rover);
-
         if ($rover->getPosition()->getYCoordinate() < 0) {
             $rover->setPosition(
                 new Position(
@@ -47,10 +75,11 @@ class RectangularGrid extends PositionableGrid
         }
     }
 
-    public function moveXForward(Rover $rover)
+    /**
+     * @param Rover $rover
+     */
+    private function wrapXTopEdge(Rover $rover)
     {
-        parent::moveXForward($rover);
-
         if ($rover->getPosition()->getXCoordinate() >= $this->xSize) {
             $rover->setPosition(
                 new Position(
@@ -61,10 +90,11 @@ class RectangularGrid extends PositionableGrid
         }
     }
 
-    public function moveXBackward(Rover $rover)
+    /**
+     * @param Rover $rover
+     */
+    private function wrapXBottomEdge(Rover $rover)
     {
-        parent::moveXBackward($rover);
-
         if ($rover->getPosition()->getXCoordinate() < 0) {
             $rover->setPosition(
                 new Position(

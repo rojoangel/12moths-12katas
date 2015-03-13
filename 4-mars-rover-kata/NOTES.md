@@ -31,7 +31,7 @@ class EastTest extends \PHPUnit_Framework_TestCase
     {
         $direction = new East(new Rover(<< I need to add initial direction here >>)));
         $newDirection = $direction->turnLeft();
-        $this->assertInstanceOf('Kata\North', $newDirection);
+        $this->assertInstanceOf('Kata\Direction\North', $newDirection);
     }
 ```
 
@@ -73,6 +73,14 @@ abstract protected function wrapEdge();
 ```
 
 Refactored position as a ValueObject:
-as a result of it moved all the \Kata\RectangularGrid::wrapEdge to the corresponding \Kata\RectangularGrid::move* methods
+as a result of it moved all the \Kata\Grid\RectangularGrid::wrapEdge to the corresponding \Kata\Grid\RectangularGrid::move* methods
 
 Refactored Grid to implement the strategy pattern although I kept the abstract PositionableGrid class
+
+Implemented NullCommand using Null Object Design Pattern
+@todo - command parser needs to know about the Rover - review this decision
+and the following line looks weird
+```
+        $roverController = new RoverController($rover, new CommandParser($rover));
+```
+

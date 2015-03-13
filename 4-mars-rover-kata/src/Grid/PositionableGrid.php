@@ -1,8 +1,12 @@
 <?php
 
 
-namespace Kata;
+namespace Kata\Grid;
 
+
+use Kata\Grid;
+use Kata\Position;
+use Kata\Rover;
 
 abstract class PositionableGrid implements Grid
 {

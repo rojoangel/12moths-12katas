@@ -1,8 +1,13 @@
 <?php
 
 
-namespace Kata;
+namespace Kata\Direction;
 
+
+use Kata\Direction;
+
+
+use Kata\Rover;
 
 class West implements Direction
 {

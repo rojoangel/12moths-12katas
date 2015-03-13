@@ -1,10 +1,13 @@
 <?php
 
 
-namespace Kata;
+namespace Kata\Direction;
 
 
-class South implements Direction
+use Kata\Direction;
+use Kata\Rover;
+
+class North implements Direction
 {
 
     /**
@@ -12,15 +15,16 @@ class South implements Direction
      */
     public function turnLeft(Rover $rover)
     {
-        $rover->setDirection(new East());
+        $rover->setDirection(new West());
     }
+
 
     /**
      * @param Rover $rover
      */
     public function turnRight(Rover $rover)
     {
-        $rover->setDirection(new West());
+        $rover->setDirection(new East());
     }
 
     /**
@@ -28,7 +32,7 @@ class South implements Direction
      */
     public function moveForward(Rover $rover)
     {
-        $rover->getGrid()->moveYBackward($rover);
+        $rover->getGrid()->moveYForward($rover);
     }
 
     /**
@@ -36,6 +40,6 @@ class South implements Direction
      */
     public function moveBackward(Rover $rover)
     {
-        $rover->getGrid()->moveYForward($rover);
+        $rover->getGrid()->moveYBackward($rover);
     }
 }
