@@ -4,7 +4,6 @@
 namespace Kata\Grid;
 
 use Kata\Position;
-use Kata\Rover;
 
 class RectangularGrid extends PositionableGrid
 {
@@ -15,93 +14,103 @@ class RectangularGrid extends PositionableGrid
     /** @var integer $ySize */
     private $ySize;
 
+    /**
+     * @param $xSize
+     * @param $ySize
+     */
     public function __construct($xSize, $ySize)
     {
         $this->xSize = $xSize;
         $this->ySize = $ySize;
     }
 
-    public function moveYForward(Rover $rover)
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    public function moveYForward(Position $position)
     {
-        parent::moveYForward($rover);
-        $this->wrapTopYEdge($rover);
-    }
-
-    public function moveYBackward(Rover $rover)
-    {
-        parent::moveYBackward($rover);
-        $this->wrapBottomYEdge($rover);
-    }
-
-    public function moveXForward(Rover $rover)
-    {
-        parent::moveXForward($rover);
-        $this->wrapXTopEdge($rover);
-    }
-
-    public function moveXBackward(Rover $rover)
-    {
-        parent::moveXBackward($rover);
-        $this->wrapXBottomEdge($rover);
+        return $this->wrapTopYEdge(parent::moveYForward($position));
     }
 
     /**
-     * @param Rover $rover
+     * @param Position $position
+     * @return Position
      */
-    private function wrapTopYEdge(Rover $rover)
+    public function moveYBackward(Position $position)
     {
-        if ($rover->getPosition()->getYCoordinate() >= $this->ySize) {
-            $rover->setPosition(
-                new Position(
-                    $rover->getPosition()->getXCoordinate(),
-                    0
-                )
-            );
-        }
+
+        return $this->wrapBottomYEdge(parent::moveYBackward($position));
     }
 
     /**
-     * @param Rover $rover
+     * @param Position $position
+     * @return Position
      */
-    private function wrapBottomYEdge(Rover $rover)
+    public function moveXForward(Position $position)
     {
-        if ($rover->getPosition()->getYCoordinate() < 0) {
-            $rover->setPosition(
-                new Position(
-                    $rover->getPosition()->getXCoordinate(),
-                    $this->ySize - 1
-                )
-            );
-        }
+
+        return $this->wrapXTopEdge(parent::moveXForward($position));
     }
 
     /**
-     * @param Rover $rover
+     * @param Position $position
+     * @return Position
      */
-    private function wrapXTopEdge(Rover $rover)
+    public function moveXBackward(Position $position)
     {
-        if ($rover->getPosition()->getXCoordinate() >= $this->xSize) {
-            $rover->setPosition(
-                new Position(
-                    0,
-                    $rover->getPosition()->getYCoordinate()
-                )
-            );
-        }
+        return $this->wrapXBottomEdge(parent::moveXBackward($position));
     }
 
     /**
-     * @param Rover $rover
+     * @param Position $position
+     * @return Position
      */
-    private function wrapXBottomEdge(Rover $rover)
+    private function wrapTopYEdge(Position $position)
     {
-        if ($rover->getPosition()->getXCoordinate() < 0) {
-            $rover->setPosition(
-                new Position(
-                    $this->xSize - 1,
-                    $rover->getPosition()->getYCoordinate()
-                )
-            );
+        $newPosition = $position;
+        if ($position->getYCoordinate() >= $this->ySize) {
+            $newPosition = new Position($position->getXCoordinate(), 0);
         }
+        return $newPosition;
+    }
+
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    private function wrapBottomYEdge(Position $position)
+    {
+        $newPosition = $position;
+        if ($position->getYCoordinate() < 0) {
+            $newPosition = new Position($position->getXCoordinate(), $this->ySize - 1);
+        }
+        return $newPosition;
+    }
+
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    private function wrapXTopEdge(Position $position)
+    {
+        $newPosition = $position;
+        if ($position->getXCoordinate() >= $this->xSize) {
+            $newPosition = new Position(0, $position->getYCoordinate());
+        }
+        return $newPosition;
+    }
+
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    private function wrapXBottomEdge(Position $position)
+    {
+        $newPosition = $position;
+        if ($position->getXCoordinate() < 0) {
+            $newPosition = new Position($this->xSize - 1, $position->getYCoordinate());
+        }
+        return $newPosition;
     }
 }
