@@ -41,9 +41,19 @@ class RoverControllerTest extends \PHPUnit_Framework_TestCase
                 new Position(0, 0)
             ),
             array(
-                "RFLFFRF",
+                'RFLFFRF',
                 new East(),
                 new Position(2, 2)
+            ),
+            array(
+                '',
+                new North(),
+                new Position(0, 0)
+            ),
+            array(
+                null,
+                new North(),
+                new Position(0, 0)
             )
         );
     }

@@ -30,12 +30,21 @@ class RoverController
      */
     public function moveRover($instructions)
     {
+        $this->processInstructions($instructions)->execute();
+    }
+
+    /**
+     * @param $instructions
+     * @return MacroCommand
+     */
+    private function processInstructions($instructions)
+    {
         $commands = array();
+
         for ($i = 0; $i < strlen($instructions); $i++) {
             $commands[] = $this->commandParser->parse(substr($instructions, $i, 1));
         }
 
-        $macroCommand = new MacroCommand($commands);
-        $macroCommand->execute();
+        return new MacroCommand($commands);
     }
 }
