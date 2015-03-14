@@ -83,4 +83,7 @@ and the following line looks weird
 ```
         $roverController = new RoverController($rover, new CommandParser($rover));
 ```
+
+@todo refactor Grid so it works over Positions and no Rovers
+
 @todo add obstacles
