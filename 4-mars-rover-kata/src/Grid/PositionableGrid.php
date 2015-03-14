@@ -6,48 +6,55 @@ namespace Kata\Grid;
 
 use Kata\Grid;
 use Kata\Position;
-use Kata\Rover;
 
 abstract class PositionableGrid implements Grid
 {
 
-    public function moveYForward(Rover $rover)
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    public function moveYForward(Position $position)
     {
-        $rover->setPosition(
-            new Position(
-                $rover->getPosition()->getXCoordinate(),
-                $rover->getPosition()->getYCoordinate() + 1
-            )
+        return new Position(
+            $position->getXCoordinate(),
+            $position->getYCoordinate() + 1
         );
     }
 
-    public function moveYBackward(Rover $rover)
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    public function moveYBackward(Position $position)
     {
-        $rover->setPosition(
-            new Position(
-                $rover->getPosition()->getXCoordinate(),
-                $rover->getPosition()->getYCoordinate() - 1
-            )
+        return new Position(
+            $position->getXCoordinate(),
+            $position->getYCoordinate() - 1
         );
     }
 
-    public function moveXForward(Rover $rover)
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    public function moveXForward(Position $position)
     {
-        $rover->setPosition(
-            new Position(
-                $rover->getPosition()->getXCoordinate() + 1,
-                $rover->getPosition()->getYCoordinate()
-            )
+        return new Position(
+            $position->getXCoordinate() + 1,
+            $position->getYCoordinate()
         );
     }
 
-    public function moveXBackward(Rover $rover)
+    /**
+     * @param Position $position
+     * @return Position
+     */
+    public function moveXBackward(Position $position)
     {
-        $rover->setPosition(
-            new Position(
-                $rover->getPosition()->getXCoordinate() - 1,
-                $rover->getPosition()->getYCoordinate()
-            )
+        return new Position(
+            $position->getXCoordinate() - 1,
+            $position->getYCoordinate()
         );
     }
 }

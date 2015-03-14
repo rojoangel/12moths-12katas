@@ -84,6 +84,6 @@ and the following line looks weird
         $roverController = new RoverController($rover, new CommandParser($rover));
 ```
 
-@todo refactor Grid so it works over Positions and no Rovers
+Refactored Grid so it works on Positions and not on Rovers
 
 @todo add obstacles

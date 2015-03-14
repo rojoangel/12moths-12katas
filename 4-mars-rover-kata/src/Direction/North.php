@@ -32,7 +32,7 @@ class North implements Direction
      */
     public function moveForward(Rover $rover)
     {
-        $rover->getGrid()->moveYForward($rover);
+        $rover->setPosition($rover->getGrid()->moveYForward($rover->getPosition()));
     }
 
     /**
@@ -40,6 +40,6 @@ class North implements Direction
      */
     public function moveBackward(Rover $rover)
     {
-        $rover->getGrid()->moveYBackward($rover);
+        $rover->setPosition($rover->getGrid()->moveYBackward($rover->getPosition()));
     }
 }
