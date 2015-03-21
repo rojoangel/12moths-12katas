@@ -78,7 +78,7 @@ abstract class PositionableGrid implements Grid
      * @param Position $position
      * @return bool
      */
-    private function detectCollision(Position $position)
+    protected function detectCollision(Position $position)
     {
         return in_array($position, $this->obstacles);
     }
