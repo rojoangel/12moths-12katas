@@ -30,4 +30,9 @@ interface Grid
      * @return Position
      */
     public function moveXBackward(Position $position);
+
+    /**
+     * @param Position $obstacle
+     */
+    public function addObstacle(Position $obstacle);
 }

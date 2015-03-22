@@ -86,4 +86,15 @@ and the following line looks weird
 
 Refactored Grid so it works on Positions and not on Rovers
 
-@todo add obstacles
+Implemented obstacle detection in a very intrusive way, see commits:
+
+- https://github.com/rojoangel/12moths-12katas/commit/1a25234813b5ccc051b47358eb8caec71b86b3d7
+- https://github.com/rojoangel/12moths-12katas/commit/ea2f7e881f4ca9a007852b8c90c42a8571a14bfc
+
+@todo refactor collision detection to match the following requirement:
+
+```
+Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point and reports the obstacle.
+```
+
+Some sort of exception needs to be thrown at some stage.
