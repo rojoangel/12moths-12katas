@@ -8,6 +8,7 @@ use Kata\Direction\East;
 use Kata\Direction\North;
 use Kata\Direction\South;
 use Kata\Direction\West;
+use Kata\Grid\CollisionDetectedException;
 use Kata\Grid\InfiniteGrid;
 
 class RoverTest extends \PHPUnit_Framework_TestCase
@@ -148,6 +149,34 @@ class RoverTest extends \PHPUnit_Framework_TestCase
 
         $rover->moveBackward();
 
+        $this->assertEquals(new Position(1, 0), $rover->getPosition());
+    }
+
+    public function testRoverDetectsObstacleWhenMovesForward()
+    {
+        $grid = new InfiniteGrid();
+        $grid->addObstacle(new Position(1, 0));
+        $rover = new Rover(new East(), new Position(0, 0), $grid);
+
+        try {
+            $rover->moveForward();
+        } catch (CollisionDetectedException $exception) {
+            $this->assertEquals(new Position(1, 0), $exception->getPosition());
+        }
+        $this->assertEquals(new Position(0, 0), $rover->getPosition());
+    }
+
+    public function testRoverDetectsObstacleWhenMovesBackward()
+    {
+        $grid = new InfiniteGrid();
+        $grid->addObstacle(new Position(0, 0));
+        $rover = new Rover(new East(), new Position(1, 0), $grid);
+
+        try {
+            $rover->moveBackward();
+        } catch (CollisionDetectedException $exception) {
+            $this->assertEquals(new Position(0, 0), $exception->getPosition());
+        }
         $this->assertEquals(new Position(1, 0), $rover->getPosition());
     }
 }

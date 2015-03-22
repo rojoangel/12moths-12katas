@@ -6,6 +6,8 @@ namespace Kata;
 
 
 
+use Kata\Grid\CollisionDetectedException;
+
 interface Direction
 {
 
@@ -21,11 +23,13 @@ interface Direction
 
     /**
      * @param Rover $rover
+     * @throws CollisionDetectedException
      */
     public function moveForward(Rover $rover);
 
     /**
      * @param Rover $rover
+     * @throws CollisionDetectedException
      */
     public function moveBackward(Rover $rover);
 }

@@ -5,6 +5,7 @@ namespace Kata\Command;
 
 
 use Kata\Command;
+use Kata\Grid\CollisionDetectedException;
 
 class MacroCommand implements Command
 {
@@ -17,6 +18,9 @@ class MacroCommand implements Command
     }
 
 
+    /**
+     * @throws CollisionDetectedException
+     */
     public function execute()
     {
         for ($i =0; $i < sizeof($this->commands); $i++) {

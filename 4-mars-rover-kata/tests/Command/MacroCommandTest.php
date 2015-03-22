@@ -5,6 +5,8 @@ namespace Kata\Command;
 
 
 use Kata\Command;
+use Kata\Grid\CollisionDetectedException;
+use Kata\Position;
 
 class MacroCommandTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,10 +15,27 @@ class MacroCommandTest extends \PHPUnit_Framework_TestCase
     {
         /** @var Command[] $commands */
         $commands = array();
-        $commands[] = $this->createCommand('Kata\Command\MoveBackwardCommand');
-        $commands[] = $this->createCommand('Kata\Command\MoveForwardCommand');
-        $commands[] = $this->createCommand('Kata\Command\TurnLeftCommand');
-        $commands[] = $this->createCommand('Kata\Command\TurnRightCommand');
+        $commands[] = $this->expectsCommandToBeExecuted('Kata\Command\MoveBackwardCommand');
+        $commands[] = $this->expectsCommandToBeExecuted('Kata\Command\MoveForwardCommand');
+        $commands[] = $this->expectsCommandToBeExecuted('Kata\Command\TurnLeftCommand');
+        $commands[] = $this->expectsCommandToBeExecuted('Kata\Command\TurnRightCommand');
+
+        $macroCommand = new MacroCommand($commands);
+
+        $macroCommand->execute();
+    }
+
+    /**
+     * @expectedException \Kata\Grid\CollisionDetectedException
+     */
+    public function testExecuteStopsCommandFails()
+    {
+        /** @var Command[] $commands */
+        $commands = array();
+        $commands[] = $this->expectsCommandToBeExecuted('Kata\Command\MoveBackwardCommand');
+        $commands[] = $this->mockCommandToThrowCollisionException('Kata\Command\MoveForwardCommand');
+        $commands[] = $this->expectsCommandNotToBeExecuted('Kata\Command\TurnLeftCommand');
+        $commands[] = $this->expectsCommandNotToBeExecuted('Kata\Command\TurnRightCommand');
 
         $macroCommand = new MacroCommand($commands);
 
@@ -25,15 +44,46 @@ class MacroCommandTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @return Command
+     * @param string $className
      */
-    private function createCommand($className)
+    private function expectsCommandToBeExecuted($className)
     {
-        $backwardCommand = $this->getMockBuilder($className)
+        $command = $this->getMockBuilder($className)
             ->disableOriginalConstructor()
             ->getMock();
-        $backwardCommand->expects($this->once())
+        $command->expects($this->once())
             ->method('execute');
 
-        return $backwardCommand;
+        return $command;
+    }
+
+    /**
+     * @return Command
+     * @param string $className
+     */
+    private function expectsCommandNotToBeExecuted($className)
+    {
+        $command = $this->getMockBuilder($className)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $command->expects($this->never())
+            ->method('execute');
+
+        return $command;
+    }
+
+    /**
+     * @return Command
+     * @param string $className
+     */
+    private function mockCommandToThrowCollisionException($className)
+    {
+        $command = $this->getMockBuilder($className)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $command->method('execute')
+            ->will($this->throwException(new CollisionDetectedException(new Position(0, 0))));
+
+        return $command;
     }
 }
