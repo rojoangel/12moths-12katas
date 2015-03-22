@@ -27,54 +27,55 @@ class RectangularGrid extends PositionableGrid
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     public function moveYForward(Position $position)
     {
-        $newPosition = $this->wrapTopYEdge(parent::moveYForward($position));
-        return $this->detectCollision($newPosition) ? $position : $newPosition;
+        return $this->wrapTopYEdge(parent::moveYForward($position));
     }
 
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     public function moveYBackward(Position $position)
     {
 
-        $newPosition = $this->wrapBottomYEdge(parent::moveYBackward($position));
-        return $this->detectCollision($newPosition) ? $position : $newPosition;
+        return $this->wrapBottomYEdge(parent::moveYBackward($position));
     }
 
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     public function moveXForward(Position $position)
     {
 
-        $newPosition = $this->wrapXTopEdge(parent::moveXForward($position));
-        return $this->detectCollision($newPosition) ? $position : $newPosition;
+        return $this->wrapXTopEdge(parent::moveXForward($position));
     }
 
     /**
      * @param Position $position
      * @return Position
+     * @throw CollisionDetectedException
      */
     public function moveXBackward(Position $position)
     {
-        $newPosition = $this->wrapXBottomEdge(parent::moveXBackward($position));
-        return $this->detectCollision($newPosition) ? $position : $newPosition;
+        return $this->wrapXBottomEdge(parent::moveXBackward($position));
     }
 
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     private function wrapTopYEdge(Position $position)
     {
         $newPosition = $position;
         if ($position->getYCoordinate() >= $this->ySize) {
-            $newPosition = new Position($position->getXCoordinate(), 0);
+            $newPosition = $this->tryToGetPositionAt($position->getXCoordinate(), 0);
         }
         return $newPosition;
     }
@@ -82,12 +83,13 @@ class RectangularGrid extends PositionableGrid
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     private function wrapBottomYEdge(Position $position)
     {
         $newPosition = $position;
         if ($position->getYCoordinate() < 0) {
-            $newPosition = new Position($position->getXCoordinate(), $this->ySize - 1);
+            $newPosition = $this->tryToGetPositionAt($position->getXCoordinate(), $this->ySize - 1);
         }
         return $newPosition;
     }
@@ -95,12 +97,13 @@ class RectangularGrid extends PositionableGrid
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     private function wrapXTopEdge(Position $position)
     {
         $newPosition = $position;
         if ($position->getXCoordinate() >= $this->xSize) {
-            $newPosition = new Position(0, $position->getYCoordinate());
+            $newPosition = $this->tryToGetPositionAt(0, $position->getYCoordinate());
         }
         return $newPosition;
     }
@@ -108,12 +111,13 @@ class RectangularGrid extends PositionableGrid
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     private function wrapXBottomEdge(Position $position)
     {
         $newPosition = $position;
         if ($position->getXCoordinate() < 0) {
-            $newPosition = new Position($this->xSize - 1, $position->getYCoordinate());
+            $newPosition = $this->tryToGetPositionAt($this->xSize - 1, $position->getYCoordinate());
         }
         return $newPosition;
     }

@@ -16,54 +16,53 @@ abstract class PositionableGrid implements Grid
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     public function moveYForward(Position $position)
     {
-        $newPosition = new Position(
+        return $this->tryToGetPositionAt(
             $position->getXCoordinate(),
             $position->getYCoordinate() + 1
         );
-        return $this->detectCollision($newPosition) ? $position : $newPosition;
     }
 
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     public function moveYBackward(Position $position)
     {
-        $newPosition = new Position(
+        return $this->tryToGetPositionAt(
             $position->getXCoordinate(),
             $position->getYCoordinate() - 1
         );
-        return $this->detectCollision($newPosition) ? $position : $newPosition;
     }
 
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     public function moveXForward(Position $position)
     {
-        $newPosition = new Position(
+        return $this->tryToGetPositionAt(
             $position->getXCoordinate() + 1,
             $position->getYCoordinate()
         );
-
-        return $this->detectCollision($newPosition) ? $position : $newPosition;
     }
 
     /**
      * @param Position $position
      * @return Position
+     * @throws CollisionDetectedException
      */
     public function moveXBackward(Position $position)
     {
-        $newPosition = new Position(
+        return $this->tryToGetPositionAt(
             $position->getXCoordinate() - 1,
             $position->getYCoordinate()
         );
-        return $this->detectCollision($newPosition) ? $position : $newPosition;
     }
 
     /**
@@ -76,10 +75,29 @@ abstract class PositionableGrid implements Grid
 
     /**
      * @param Position $position
-     * @return bool
+     * @throws CollisionDetectedException
      */
-    protected function detectCollision(Position $position)
+    private function detectCollision(Position $position)
     {
-        return in_array($position, $this->obstacles);
+        if (in_array($position, $this->obstacles)) {
+            throw new CollisionDetectedException();
+        }
+    }
+
+    /**
+     * @param $xCoordinate
+     * @param $yCoordinate
+     * @return Position
+     * @throws CollisionDetectedException
+     */
+    protected function tryToGetPositionAt($xCoordinate, $yCoordinate)
+    {
+        $newPosition =  new Position(
+            $xCoordinate,
+            $yCoordinate
+        );
+
+        $this->detectCollision($newPosition);
+        return $newPosition;
     }
 }
