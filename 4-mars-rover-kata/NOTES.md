@@ -99,4 +99,5 @@ Implemented obstacle detection in a very intrusive way, see commits:
 Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point and reports the obstacle.
 ```
 
-Some sort of exception needs to be thrown at some stage.
+Reimplemented collision detection to be based on exceptions.
+@ todo add Obstacles
