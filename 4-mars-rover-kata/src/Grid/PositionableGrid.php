@@ -80,7 +80,7 @@ abstract class PositionableGrid implements Grid
     private function detectCollision(Position $position)
     {
         if (in_array($position, $this->obstacles)) {
-            throw new CollisionDetectedException();
+            throw new CollisionDetectedException($position);
         }
     }
 

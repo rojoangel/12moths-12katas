@@ -4,6 +4,7 @@
 namespace Kata\Direction;
 
 use Kata\Direction;
+use Kata\Grid\CollisionDetectedException;
 use Kata\Rover;
 
 class East implements Direction
@@ -27,6 +28,7 @@ class East implements Direction
 
     /**
      * @param Rover $rover
+     * @throws CollisionDetectedException
      */
     public function moveForward(Rover $rover)
     {
@@ -35,6 +37,7 @@ class East implements Direction
 
     /**
      * @param Rover $rover
+     * @throws CollisionDetectedException
      */
     public function moveBackward(Rover $rover)
     {

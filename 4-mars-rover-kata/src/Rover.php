@@ -5,6 +5,7 @@ namespace Kata;
 
 
 use Kata\Direction;
+use Kata\Grid\CollisionDetectedException;
 
 class Rover
 {
@@ -80,11 +81,17 @@ class Rover
         $this->direction->turnRight($this);
     }
 
+    /**
+     * @throws CollisionDetectedException
+     */
     public function moveForward()
     {
         $this->direction->moveForward($this);
     }
 
+    /**
+     * @throws CollisionDetectedException
+     */
     public function moveBackward()
     {
         $this->direction->moveBackward($this);
