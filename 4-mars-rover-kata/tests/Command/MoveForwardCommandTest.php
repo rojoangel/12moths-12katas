@@ -8,6 +8,7 @@ use Kata\Direction\East;
 use Kata\Direction\North;
 use Kata\Grid\CollisionDetectedException;
 use Kata\Grid\RectangularGrid;
+use Kata\Obstacle;
 use Kata\Position;
 use Kata\Rover;
 
@@ -36,7 +37,7 @@ class MoveForwardCommandTest extends \PHPUnit_Framework_TestCase
     public function testWhenExecuteDetectsCollisionAndRemainsAtInitialCoordinate()
     {
         $grid = new RectangularGrid(2, 2);
-        $grid->addObstacle(new Position(1, 0));
+        $grid->addObstacle(new Obstacle(new Position(1, 0)));
 
         $rover = new Rover(new East(), new Position(0, 0), $grid);
 
@@ -45,7 +46,7 @@ class MoveForwardCommandTest extends \PHPUnit_Framework_TestCase
         try {
             $command->execute();
         } catch (CollisionDetectedException $exception) {
-            $this->assertEquals(new Position(1, 0), $exception->getPosition());
+            $this->assertEquals(new Obstacle(new Position(1, 0)), $exception->getObstacle());
         }
 
         $this->assertEquals(new Position(0, 0), $rover->getPosition());

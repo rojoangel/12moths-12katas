@@ -6,6 +6,7 @@ namespace Kata\Command;
 
 use Kata\Command;
 use Kata\Grid\CollisionDetectedException;
+use Kata\Obstacle;
 use Kata\Position;
 
 class MacroCommandTest extends \PHPUnit_Framework_TestCase
@@ -82,7 +83,7 @@ class MacroCommandTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
         $command->method('execute')
-            ->will($this->throwException(new CollisionDetectedException(new Position(0, 0))));
+            ->will($this->throwException(new CollisionDetectedException(new Obstacle(new Position(0, 0)))));
 
         return $command;
     }

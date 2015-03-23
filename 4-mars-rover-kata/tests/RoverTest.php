@@ -155,13 +155,13 @@ class RoverTest extends \PHPUnit_Framework_TestCase
     public function testRoverDetectsObstacleWhenMovesForward()
     {
         $grid = new InfiniteGrid();
-        $grid->addObstacle(new Position(1, 0));
+        $grid->addObstacle(new Obstacle(new Position(1, 0)));
         $rover = new Rover(new East(), new Position(0, 0), $grid);
 
         try {
             $rover->moveForward();
         } catch (CollisionDetectedException $exception) {
-            $this->assertEquals(new Position(1, 0), $exception->getPosition());
+            $this->assertEquals(new Obstacle(new Position(1, 0)), $exception->getObstacle());
         }
         $this->assertEquals(new Position(0, 0), $rover->getPosition());
     }
@@ -169,13 +169,13 @@ class RoverTest extends \PHPUnit_Framework_TestCase
     public function testRoverDetectsObstacleWhenMovesBackward()
     {
         $grid = new InfiniteGrid();
-        $grid->addObstacle(new Position(0, 0));
+        $grid->addObstacle(new Obstacle(new Position(0, 0)));
         $rover = new Rover(new East(), new Position(1, 0), $grid);
 
         try {
             $rover->moveBackward();
         } catch (CollisionDetectedException $exception) {
-            $this->assertEquals(new Position(0, 0), $exception->getPosition());
+            $this->assertEquals(new Obstacle(new Position(0, 0)), $exception->getObstacle());
         }
         $this->assertEquals(new Position(1, 0), $rover->getPosition());
     }
