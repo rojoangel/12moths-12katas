@@ -23,8 +23,8 @@ class MacroCommand implements Command
      */
     public function execute()
     {
-        for ($i =0; $i < sizeof($this->commands); $i++) {
-            $this->commands[$i]->execute();
+        foreach ($this->commands as $command) {
+            $command->execute();
         }
     }
 }
