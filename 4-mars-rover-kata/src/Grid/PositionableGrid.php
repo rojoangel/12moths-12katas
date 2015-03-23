@@ -5,12 +5,13 @@ namespace Kata\Grid;
 
 
 use Kata\Grid;
+use Kata\Obstacle;
 use Kata\Position;
 
 abstract class PositionableGrid implements Grid
 {
 
-    /** @var Position[] $obstacles */
+    /** @var Obstacle[] $obstacles */
     private $obstacles = array();
 
     /**
@@ -66,11 +67,11 @@ abstract class PositionableGrid implements Grid
     }
 
     /**
-     * @param Position $obstacle
+     * @param Obstacle $obstacle
      */
-    public function addObstacle(Position $obstacle)
+    public function addObstacle(Obstacle $obstacle)
     {
-        $this->obstacles[] = $obstacle;
+        $this->obstacles[$obstacle->getPosition()->__toString()] = $obstacle;
     }
 
     /**
@@ -79,8 +80,8 @@ abstract class PositionableGrid implements Grid
      */
     private function detectCollision(Position $position)
     {
-        if (in_array($position, $this->obstacles)) {
-            throw new CollisionDetectedException($position);
+        if (array_key_exists($position->__toString(), $this->obstacles)) {
+            throw new CollisionDetectedException($this->obstacles[$position->__toString()]);
         }
     }
 

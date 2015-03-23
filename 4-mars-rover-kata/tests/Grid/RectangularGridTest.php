@@ -4,6 +4,7 @@
 namespace Kata\Grid;
 
 
+use Kata\Obstacle;
 use Kata\Position;
 
 class RectangularGridTest extends \PHPUnit_Framework_TestCase
@@ -15,7 +16,7 @@ class RectangularGridTest extends \PHPUnit_Framework_TestCase
     public function testObstacleDetectionWhenMovingXForward()
     {
         $grid = new RectangularGrid(2, 2);
-        $grid->addObstacle(new Position(0, 0));
+        $grid->addObstacle(new Obstacle(new Position(0, 0)));
 
         // exception expected
         $grid->moveXForward(new Position(1, 0));
@@ -27,7 +28,7 @@ class RectangularGridTest extends \PHPUnit_Framework_TestCase
     public function testObstacleDetectionWhenMovingXBackward()
     {
         $grid = new RectangularGrid(2, 2);
-        $grid->addObstacle(new Position(1, 0));
+        $grid->addObstacle(new Obstacle(new Position(1, 0)));
 
         // exception expected
         $grid->moveXBackward(new Position(0, 0));
@@ -39,7 +40,7 @@ class RectangularGridTest extends \PHPUnit_Framework_TestCase
     public function testObstacleDetectionWhenMovingYForward()
     {
         $grid = new RectangularGrid(2, 2);
-        $grid->addObstacle(new Position(0, 0));
+        $grid->addObstacle(new Obstacle(new Position(0, 0)));
 
         // exception expected
         $grid->moveYForward(new Position(0, 1));
@@ -51,7 +52,7 @@ class RectangularGridTest extends \PHPUnit_Framework_TestCase
     public function testObstacleDetectionWhenMovingYBackward()
     {
         $grid = new RectangularGrid(2, 2);
-        $grid->addObstacle(new Position(0, 1));
+        $grid->addObstacle(new Obstacle(new Position(0, 1)));
 
         // exception expected
         $grid->moveYBackward(new Position(0, 0));

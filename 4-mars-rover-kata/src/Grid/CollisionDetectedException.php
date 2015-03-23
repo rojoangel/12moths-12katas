@@ -4,26 +4,26 @@
 namespace Kata\Grid;
 
 
-use Kata\Position;
+use Kata\Obstacle;
 
 class CollisionDetectedException extends \Exception
 {
-    /** @var Position $position */
-    private $position;
+    /** @var Obstacle $obstacle */
+    private $obstacle;
 
     /**
-     * @param string $position
+     * @param Obstacle $obstacle
      */
-    public function __construct($position)
+    public function __construct(Obstacle $obstacle)
     {
-        $this->position = $position;
+        $this->obstacle = $obstacle;
     }
 
     /**
-     * @return Position
+     * @return Obstacle
      */
-    public function getPosition()
+    public function getObstacle()
     {
-        return $this->position;
+        return $this->obstacle;
     }
 }

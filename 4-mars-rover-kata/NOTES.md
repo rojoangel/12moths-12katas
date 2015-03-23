@@ -101,12 +101,11 @@ Implement obstacle detection before each move to a new square. If a given sequen
 
 Reimplemented collision detection to be based on exceptions.
 
-@todo implement obstacles using its own class
-@tip - Obstacle initially as a class, but if needed can be extracted to an interface 
-and implemented by different types like Rock, Hole, etc.
-@tip - Grid::addObstacle(Position) could be refactored to Grid::addObstacle(Obstacle)
-@tip - the $obstacles array cannot contain objects as keys - instead use position->toString() = (x,y) as the key || \SplObjectStorage does not work as it uses memory pointers to compare objects
+Implemented obstacles using its own class:
 
-@todo implement obstacle reporting. i.e. rover controller exposes a reportObstacle() method.
+Obstacle initially as a class, but if needed can be extracted to an interface and implemented by different types like Rock, Hole, etc.
+Implementation detail: the PositionableGrid::obstacles array cannot contain objects as keys - instead use position->toString() = (x,y) as the key || \SplObjectStorage does not work as it uses memory pointers to compare objects
 
-@todo - refactor MacroCommand to use foreach() instead of for()
+@todo - Obstacle::__construct() accepts Position, maybe position should be treated internally
+
+Implemented Obstacle reporting at the controller level by exposing a reportObstacle() method.

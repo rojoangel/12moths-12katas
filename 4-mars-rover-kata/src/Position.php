@@ -37,4 +37,9 @@ class Position
     {
         return $this->yCoordinate;
     }
+
+    public function __toString()
+    {
+        return sprintf('(%d, %d)', $this->getXCoordinate(), $this->getYCoordinate());
+    }
 }
