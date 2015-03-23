@@ -5,6 +5,7 @@ namespace Kata;
 
 
 use Kata\Command\MacroCommand;
+use Kata\Grid\CollisionDetectedException;
 
 class RoverController
 {
@@ -14,6 +15,9 @@ class RoverController
 
     /** @var CommandParser $commandParser */
     private $commandParser;
+
+    /** @var Obstacle $obstacle */
+    private $obstacle;
 
     /**
      * @param Rover $rover
@@ -30,7 +34,19 @@ class RoverController
      */
     public function moveRover($instructions)
     {
-        $this->processInstructions($instructions)->execute();
+        try {
+            $this->processInstructions($instructions)->execute();
+        } catch (CollisionDetectedException $collisionException) {
+            $this->obstacle = $collisionException->getObstacle();
+        }
+    }
+
+    /**
+     * @return Obstacle
+     */
+    public function reportObstacle()
+    {
+        return $this->obstacle;
     }
 
     /**

@@ -108,6 +108,4 @@ Implementation detail: the PositionableGrid::obstacles array cannot contain obje
 
 @todo - Obstacle::__construct() accepts Position, maybe position should be treated internally
 
-@todo implement obstacle reporting. i.e. rover controller exposes a reportObstacle() method.
-
-@todo - refactor MacroCommand to use foreach() instead of for()
+Implemented Obstacle reporting at the controller level by exposing a reportObstacle() method.
