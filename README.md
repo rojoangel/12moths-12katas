@@ -15,6 +15,8 @@
 * kata 7: [Birthday Greetings kata - hexagonal architecture](http://matteo.vaccari.name/blog/archives/154)
 
 ## kata resources:
+[solveet](http://www.solveet.com/)
+
 [codekata.com](http://codekata.com)
 
 [12meses12katas](https://github.com/12meses12katas)
