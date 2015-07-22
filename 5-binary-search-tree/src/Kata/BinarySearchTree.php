@@ -65,7 +65,11 @@ class BinarySearchTree
         }
 
         if ($value > $this->value) {
-            $this->right = new BinarySearchTree($value);
+            if (empty($this->right)) {
+                $this->right = new BinarySearchTree($value);
+            } else {
+                $this->right->add($value);
+            }
         }
     }
 }
