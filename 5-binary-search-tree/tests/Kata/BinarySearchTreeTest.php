@@ -104,4 +104,16 @@ class BinarySearchTreeTest extends TestCase
         $this->assertEquals(2, $tree->getLeft()->getValue());
         $this->assertEquals(1, $tree->getLeft()->getLeft()->getValue());
     }
+
+    public function testTwoRightValues()
+    {
+        $tree = new BinarySearchTree(1);
+        $tree->add(2);
+        $tree->add(4);
+
+        $this->assertEquals(1, $tree->getValue());
+        $this->assertEquals(2, $tree->getRight()->getValue());
+        $this->assertEquals(4, $tree->getRight()->getRight()->getValue());
+    }
+
 }
