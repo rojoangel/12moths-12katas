@@ -1,0 +1,23 @@
+{
+    "name": "rojoa/5-binary-search-tree",
+    "description": "Binary Search Tree",
+    "require": {
+        "php": "~5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.7",
+        "behat/behat": "~3.0"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Kata\\": ["src/Kata", "tests/Kata"]
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "rojoangel",
+            "email": "rojo.angel@gmail.com"
+        }
+    ]
+}
