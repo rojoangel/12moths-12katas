@@ -39,4 +39,13 @@ class BinarySearchTreeTest extends TestCase
             'negative' => [-1]
         ];
     }
+
+    public function testLeftValue()
+    {
+        $tree = new BinarySearchTree(4);
+        $tree->add(2);
+
+        $this->assertEquals(4, $tree->getValue());
+        $this->assertEquals(2, $tree->getLeft()->getValue());
+    }
 }

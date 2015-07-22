@@ -10,6 +10,18 @@ class BinarySearchTree
     /** @var int $value */
     private $value;
 
+
+    /** @var BinarySearchTree $left */
+    private $left;
+
+    /**
+     * @return BinarySearchTree
+     */
+    public function getLeft()
+    {
+        return $this->left;
+    }
+
     /**
      * @param int $value
      */
@@ -27,5 +39,13 @@ class BinarySearchTree
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @param int $value
+     */
+    public function add($value)
+    {
+        $this->left = new BinarySearchTree($value);
     }
 }
