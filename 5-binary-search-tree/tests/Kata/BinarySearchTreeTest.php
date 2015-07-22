@@ -60,10 +60,37 @@ class BinarySearchTreeTest extends TestCase
     public function leftValueDataProvider()
     {
         return [
-            [4,2],
-            [6,5],
-            [2,0],
-            [0,-1]
+            [4, 2],
+            [6, 5],
+            [2, 0],
+            [0, -1]
+        ];
+    }
+
+    /**
+     * @param int $rootValue
+     * @param int $rightValue
+     * @dataProvider rightValueDataProvider
+     */
+    public function testRightValue($rootValue, $rightValue)
+    {
+        $tree = new BinarySearchTree($rootValue);
+        $tree->add($rightValue);
+
+        $this->assertEquals($rootValue, $tree->getValue());
+        $this->assertEquals($rightValue, $tree->getRight()->getValue());
+    }
+
+    /**
+     * @return array
+     */
+    public function rightValueDataProvider()
+    {
+        return [
+            [2, 4],
+            [5, 6],
+            [0, 2],
+            [-1, 0]
         ];
     }
 }

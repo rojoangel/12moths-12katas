@@ -10,9 +10,11 @@ class BinarySearchTree
     /** @var int $value */
     private $value;
 
-
     /** @var BinarySearchTree $left */
     private $left;
+
+    /** @var BinarySearchTree $right */
+    private $right;
 
     /**
      * @return BinarySearchTree
@@ -20,6 +22,14 @@ class BinarySearchTree
     public function getLeft()
     {
         return $this->left;
+    }
+
+    /**
+     * @return BinarySearchTree
+     */
+    public function getRight()
+    {
+        return $this->right;
     }
 
     /**
@@ -46,6 +56,12 @@ class BinarySearchTree
      */
     public function add($value)
     {
-        $this->left = new BinarySearchTree($value);
+        if ($value < $this->value) {
+            $this->left = new BinarySearchTree($value);
+        }
+
+        if ($value > $this->value) {
+            $this->right = new BinarySearchTree($value);
+        }
     }
 }
