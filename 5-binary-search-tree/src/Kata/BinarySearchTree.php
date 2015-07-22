@@ -17,19 +17,28 @@ class BinarySearchTree
     private $right;
 
     /**
+     * @param array $values
      * @return BinarySearchTree
      */
-    public function getLeft()
+    public static function from($values)
     {
-        return $this->left;
-    }
+        $values = array_filter(
+            $values,
+            function ($val) {
+                return !is_null($val);
+            }
+        );
 
-    /**
-     * @return BinarySearchTree
-     */
-    public function getRight()
-    {
-        return $this->right;
+        if (empty($values)) {
+            throw new \InvalidArgumentException('values cannot be empty');
+        }
+
+        $tree = new BinarySearchTree(array_shift($values));
+        foreach ($values as $value) {
+            $tree->add($value);
+        }
+
+        return $tree;
     }
 
     /**
@@ -49,6 +58,22 @@ class BinarySearchTree
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @return BinarySearchTree
+     */
+    public function getLeft()
+    {
+        return $this->left;
+    }
+
+    /**
+     * @return BinarySearchTree
+     */
+    public function getRight()
+    {
+        return $this->right;
     }
 
     /**

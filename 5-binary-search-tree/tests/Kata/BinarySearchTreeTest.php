@@ -115,4 +115,41 @@ class BinarySearchTreeTest extends TestCase
         $this->assertEquals(2, $tree->getRight()->getValue());
         $this->assertEquals(4, $tree->getRight()->getRight()->getValue());
     }
+
+    /**
+     * @param int[] $values
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage values cannot be empty
+     * @dataProvider fromWithEmptyArgumentsDataProvider
+     */
+    public function testFromWithEmptyArguments($values)
+    {
+        BinarySearchTree::from($values);
+    }
+
+    /**
+     * @return array
+     */
+    public function fromWithEmptyArgumentsDataProvider()
+    {
+        return [
+            'empty values' => [
+                []
+            ],
+            'one null value' => [
+                [null]
+            ],
+            'multiple null values' => [
+                [null, null, null, null]
+            ]
+        ];
+    }
+
+    public function testFrom()
+    {
+        $tree = BinarySearchTree::from([2, 1, 4]);
+        $this->assertEquals(2, $tree->getValue());
+        $this->assertEquals(1, $tree->getLeft()->getValue());
+        $this->assertEquals(4, $tree->getRight()->getValue());
+    }
 }
