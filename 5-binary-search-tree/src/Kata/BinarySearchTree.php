@@ -57,7 +57,11 @@ class BinarySearchTree
     public function add($value)
     {
         if ($value < $this->value) {
-            $this->left = new BinarySearchTree($value);
+            if (empty($this->left)) {
+                $this->left = new BinarySearchTree($value);
+            } else {
+                $this->left->add($value);
+            }
         }
 
         if ($value > $this->value) {

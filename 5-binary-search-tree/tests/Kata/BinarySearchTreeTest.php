@@ -93,4 +93,15 @@ class BinarySearchTreeTest extends TestCase
             [-1, 0]
         ];
     }
+
+    public function testTwoLeftValues()
+    {
+        $tree = new BinarySearchTree(4);
+        $tree->add(2);
+        $tree->add(1);
+
+        $this->assertEquals(4, $tree->getValue());
+        $this->assertEquals(2, $tree->getLeft()->getValue());
+        $this->assertEquals(1, $tree->getLeft()->getLeft()->getValue());
+    }
 }
