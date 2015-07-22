@@ -3,10 +3,21 @@
 
 namespace Kata;
 
+use InvalidArgumentException;
 use PHPUnit_Framework_TestCase as TestCase;
 
 class BinarySearchTreeTest extends TestCase
 {
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage value cannot be null
+     */
+    public function testNullValue()
+    {
+        new BinarySearchTree(null);
+    }
+
     /**
      * @param int $value
      * @dataProvider singleValueProvider

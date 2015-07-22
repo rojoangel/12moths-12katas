@@ -15,6 +15,9 @@ class BinarySearchTree
      */
     public function __construct($value)
     {
+        if ($value === null) {
+            throw new \InvalidArgumentException('value cannot be null');
+        }
         $this->value = $value;
     }
 
