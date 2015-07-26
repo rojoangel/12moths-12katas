@@ -92,6 +92,9 @@ class BinarySearchTree
         return $sorted;
     }
 
+    /**
+     * @return array
+     */
     public function preOrder()
     {
         $sorted[] = $this->value;
@@ -105,5 +108,25 @@ class BinarySearchTree
         }
         return $sorted;
 
+    }
+
+    /**
+     * @return array
+     */
+    public function postOrder()
+    {
+        $sorted = [];
+
+        if (!empty($this->left)) {
+            $sorted = array_merge($sorted, $this->left->postOrder());
+        }
+
+        if (!empty($this->right)) {
+            $sorted = array_merge($sorted, $this->right->postOrder());
+        }
+
+        $sorted[] = $this->value;
+
+        return $sorted;
     }
 }
