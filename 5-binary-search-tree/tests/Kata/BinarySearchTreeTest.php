@@ -107,4 +107,66 @@ class BinarySearchTreeTest extends TestCase
                 [1, 2, 3, 4, 5, 6]]
         ];
     }
+
+    /**
+     * @param $values
+     * @param $expectedSortedValues
+     * @dataProvider providerForTestPreOrder
+     */
+    public function testPreOrder($values, $expectedSortedValues)
+    {
+        $tree = BinarySearchTree::from($values);
+        $this->assertEquals($expectedSortedValues, $tree->preOrder());
+    }
+
+    /**
+     * @return array
+     */
+    public function providerForTestPreOrder()
+    {
+        return [
+            'left value #1' => [
+                [4, 2],
+                [4, 2]],
+            'left value #2' => [
+                [6, 5],
+                [6, 5]],
+            'left value #3' => [
+                [2, 0],
+                [2, 0]],
+            'left value #4' => [
+                [0, -1],
+                [0, -1]],
+            'right value #1' => [
+                [2, 4],
+                [2, 4]],
+            'right value #2' => [
+                [5, 6],
+                [5, 6]],
+            'right value #3' => [
+                [0, 2],
+                [0, 2]],
+            'right value #4' => [
+                [-1, 0],
+                [-1, 0]],
+            'multiple values #1' => [
+                [2, 1, 4],
+                [2, 1, 4]],
+            'multiple values #2' => [
+                [1, 2, 4],
+                [1, 2, 4]],
+            'multiple values #3' => [
+                [4, 2, 1],
+                [4, 2, 1]],
+            'multiple values #4' => [
+                [4, 4, 1, null, 1, 2, 2],
+                [4, 1, 2]],
+            'multiple values #5' => [
+                [6, 5, 4, 3, 2, 1],
+                [6, 5, 4, 3, 2, 1]],
+            'multiple values #6' => [
+                [3, 2, 4, 6, 5, 1],
+                [3, 2, 1, 4, 6, 5]]
+        ];
+    }
 }

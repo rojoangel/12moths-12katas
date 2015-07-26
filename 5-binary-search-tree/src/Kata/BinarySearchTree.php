@@ -91,4 +91,19 @@ class BinarySearchTree
         }
         return $sorted;
     }
+
+    public function preOrder()
+    {
+        $sorted[] = $this->value;
+
+        if (!empty($this->left)) {
+            $sorted = array_merge($sorted, $this->left->preOrder());
+        }
+
+        if (!empty($this->right)) {
+            $sorted = array_merge($sorted, $this->right->preOrder());
+        }
+        return $sorted;
+
+    }
 }
