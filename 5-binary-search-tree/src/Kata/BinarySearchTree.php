@@ -44,36 +44,12 @@ class BinarySearchTree
     /**
      * @param int $value
      */
-    public function __construct($value)
+    private function __construct($value)
     {
         if (is_null($value)) {
             throw new \InvalidArgumentException('value cannot be null');
         }
         $this->value = $value;
-    }
-
-    /**
-     * @return int
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * @return BinarySearchTree
-     */
-    public function getLeft()
-    {
-        return $this->left;
-    }
-
-    /**
-     * @return BinarySearchTree
-     */
-    public function getRight()
-    {
-        return $this->right;
     }
 
     /**
