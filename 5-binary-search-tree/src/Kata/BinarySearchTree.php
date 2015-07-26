@@ -97,4 +97,22 @@ class BinarySearchTree
             }
         }
     }
+
+    /**
+     * @return array
+     */
+    public function inOrder()
+    {
+        $sorted = [];
+        if (!empty($this->left)) {
+            $sorted = array_merge($sorted, $this->left->inOrder());
+        }
+
+        $sorted[] = $this->value;
+
+        if (!empty($this->right)) {
+            $sorted = array_merge($sorted, $this->right->inOrder());
+        }
+        return $sorted;
+    }
 }

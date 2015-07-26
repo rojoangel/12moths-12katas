@@ -152,4 +152,49 @@ class BinarySearchTreeTest extends TestCase
         $this->assertEquals(1, $tree->getLeft()->getValue());
         $this->assertEquals(4, $tree->getRight()->getValue());
     }
+
+    /**
+     * @param $values
+     * @param $expectedSortedValues
+     * @dataProvider providerForTestInOrder
+     */
+    public function testInOrder($values, $expectedSortedValues)
+    {
+        $tree = BinarySearchTree::from($values);
+        $this->assertEquals($expectedSortedValues, $tree->inOrder());
+    }
+
+    /**
+     * @return array
+     */
+    public function providerForTestInOrder()
+    {
+        return [
+            [
+                [2, 1, 4],
+                [1, 2, 4]
+            ],
+            [
+                [1, 2, 4],
+                [1, 2, 4]
+            ],
+            [
+                [4, 2, 1],
+                [1, 2, 4]
+            ],
+            [
+                [4, 4, 1, null, 1, 2, 2],
+                [1, 2, 4]
+            ],
+            [
+                [6, 5, 4, 3, 2, 1],
+                [1, 2, 3, 4, 5, 6]
+            ],
+            [
+                [3, 2, 4, 6, 5, 1],
+                [1, 2, 3, 4, 5, 6]
+            ],
+
+        ];
+    }
 }
