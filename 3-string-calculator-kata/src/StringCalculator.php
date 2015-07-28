@@ -5,6 +5,8 @@ namespace Kata;
 
 class StringCalculator {
 
+    const TOKENS = ",\n";
+
     /**
      * @param string $numbers
      * @return int
@@ -12,10 +14,10 @@ class StringCalculator {
     public function add($numbers)
     {
         $result = 0;
-        $token = strtok($numbers, ',');
+        $token = strtok($numbers, self::TOKENS);
         while($token !== false) {
             $result += intval($token);
-            $token = strtok(',');
+            $token = strtok(self::TOKENS);
         }
         return $result;
     }
