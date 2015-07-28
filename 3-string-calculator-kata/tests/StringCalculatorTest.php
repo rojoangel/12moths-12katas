@@ -28,10 +28,10 @@ class StringCalculatorTest extends \PHPUnit_Framework_TestCase {
             'empty string' => array('', 0),
             'one value = 1' => array('1', 1),
             'one value = 2' => array('2', 2),
-            'two values #1' => array('01',1),
-            'two values #2' => array('12',3),
-            'two values #3' => array('34',7),
-            'unknown amount of numbers' => array('123456789', 1+2+3+4+5+6+7+8+9)
+            'two values #1' => array('0,1', 0+1),
+            'two values #2' => array('1,2', 1+2),
+            'two values #3' => array('3,4', 3+4),
+            'unknown amount of numbers' => array('1,2,3,4,5,6,7,8,9,', 1+2+3+4+5+6+7+8+9+0)
         );
     }
 }

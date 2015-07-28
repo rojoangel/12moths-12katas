@@ -12,8 +12,10 @@ class StringCalculator {
     public function add($numbers)
     {
         $result = 0;
-        for($i=0; $i<strlen($numbers); $i++) {
-            $result += intval(substr($numbers, $i, 1));
+        $token = strtok($numbers, ',');
+        while($token !== false) {
+            $result += intval($token);
+            $token = strtok(',');
         }
         return $result;
     }
