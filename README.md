@@ -11,10 +11,13 @@
 * kata 3: [String Calculator - via Roy Osherove](http://osherove.com/tdd-kata-1/ "String Calculator - via Roy Osherove")
 * kata 4: [Mars Rover](http://dallashackclub.com/rover)
 * kata 5: Binary Search Tree
-* kata 6: [Potter Kata](http://nimblepros.com/media/36622/potter%20kata.pdf)
-* kata 7: [Bowling Game - via Uncle Bob](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata)
-* kata 8: [Bank Kata - via Sandro Mancuso](https://github.com/sandromancuso/Bank-kata/blob/master/README.md)
-* kata 9: [Birthday Greetings kata - hexagonal architecture](http://matteo.vaccari.name/blog/archives/154)
+* kata 6: Tamagotchi Kata
+
+## kata pool
+* [Potter Kata](http://nimblepros.com/media/36622/potter%20kata.pdf)
+* [Bowling Game - via Uncle Bob](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata)
+* [Bank Kata - via Sandro Mancuso](https://github.com/sandromancuso/Bank-kata/blob/master/README.md)
+* [Birthday Greetings kata - hexagonal architecture](http://matteo.vaccari.name/blog/archives/154)
 
 ## kata resources:
 [solveet](http://www.solveet.com/)
