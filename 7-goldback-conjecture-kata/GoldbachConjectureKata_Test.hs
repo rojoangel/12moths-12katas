@@ -27,4 +27,5 @@ is_prime2 = TestCase $ assertEqual
 is_prime8 = TestCase $ assertEqual
 	"Should get False from 8" False (is_prime 8)
 
+main :: IO Counts
 main = runTestTT $ TestList [testPartition4, testPartition6, testPartition8, testPartition10, testPartition52, testPartition100, is_prime2, is_prime8]

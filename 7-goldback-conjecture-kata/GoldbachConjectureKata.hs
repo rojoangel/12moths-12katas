@@ -1,6 +1,7 @@
 module GoldbachConjectureKata 
 (partition_of, is_prime) where
 
+is_prime :: Int -> Bool
 is_prime 1 = False
 is_prime n = [] == [x | x<- [2..(n-1)], (mod n x) == 0]
 
