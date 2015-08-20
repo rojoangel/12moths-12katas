@@ -12,6 +12,7 @@
 * kata 4: [Mars Rover](http://dallashackclub.com/rover)
 * kata 5: Binary Search Tree
 * kata 6: Tamagotchi Kata
+* kata 7: Goldbach conjecture kata
 
 ## kata pool
 * [Potter Kata](http://nimblepros.com/media/36622/potter%20kata.pdf)
