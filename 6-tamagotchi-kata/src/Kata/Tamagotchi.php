@@ -1,22 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arojomarijuan
- * Date: 8/6/2015
- * Time: 7:45 PM
- */
 
 namespace Kata;
 
-
-class Tamagotchi
+class Tamagotchi implements TimeObserver
 {
 
+    /** @var int */
     private $hungriness;
+
+    /** @var int */
     private $fullness;
+
+    /** @var int */
     private $happiness;
+
+    /** @var int */
     private $tiredness;
 
+    /**
+     * @param int $hungriness
+     * @param int $fullness
+     * @param int $happiness
+     * @param int $tiredness
+     */
     public function __construct($hungriness, $fullness, $happiness, $tiredness)
     {
         $this->hungriness = $hungriness;
@@ -26,7 +32,7 @@ class Tamagotchi
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getHappiness()
     {
@@ -34,13 +40,38 @@ class Tamagotchi
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getTiredness()
     {
         return $this->tiredness;
     }
 
+    /**
+     * @return int
+     */
+    public function getHungriness()
+    {
+        return $this->hungriness;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFullness()
+    {
+        return $this->fullness;
+    }
+
+    /**
+     * @param Timer $timer
+     */
+    public function timePassed(Timer $timer)
+    {
+        $this->tiredness++;
+        $this->hungriness++;
+        $this->happiness--;
+    }
 
     public function feed()
     {
@@ -48,20 +79,19 @@ class Tamagotchi
         $this->fullness++;
     }
 
-    public function getHungriness()
+    public function play()
     {
-        return $this->hungriness;
-    }
-
-    public function getFullness()
-    {
-        return $this->fullness;
-    }
-
-    public function passTime()
-    {
+        $this->happiness++;
         $this->tiredness++;
-        $this->hungriness++;
-        $this->happiness--;
+    }
+
+    public function toBed()
+    {
+        $this->tiredness--;
+    }
+
+    public function poop()
+    {
+        $this->fullness--;
     }
 }

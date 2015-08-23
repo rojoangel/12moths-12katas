@@ -2,10 +2,8 @@
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Behat\Behat\Tester\Exception\PendingException;
-use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
 use Kata\Tamagotchi;
+use Kata\Timer;
 
 /**
  * Defines application features from the specific context.
@@ -50,6 +48,38 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
     }
 
     /**
+     * @When I play with it
+     */
+    public function iPlayWithIt()
+    {
+        $this->tamagotchi->play();
+    }
+
+    /**
+     * @When I put it to bed
+     */
+    public function iPutItToBed()
+    {
+        $this->tamagotchi->toBed();
+    }
+
+    /**
+     * @When I make it poop
+     */
+    public function iMakeItPoop()
+    {
+        $this->tamagotchi->poop();
+    }
+
+    /**
+     * @Then it's hungriness is increased
+     */
+    public function itSHungrinessIsIncreased()
+    {
+        $this->assertGreaterThan($this->initialHungriness, $this->tamagotchi->getHungriness());
+    }
+
+    /**
      * @Then it's hungriness is decreased
      */
     public function itSHungrinessIsDecreased()
@@ -66,11 +96,11 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
     }
 
     /**
-     * @When time passes
+     * @Then it's fullness is decreased
      */
-    public function timePasses()
+    public function itSFullnessIsDecreased()
     {
-        $this->tamagotchi->passTime();
+        $this->assertLessThan($this->initialFullness, $this->tamagotchi->getFullness());
     }
 
     /**
@@ -82,11 +112,19 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
     }
 
     /**
-     * @Then it's hungriness is increased
+     * @Then it's tiredness is decreased
      */
-    public function itSHungrinessIsIncreased()
+    public function itSTirednessIsDecreased()
     {
-        $this->assertGreaterThan($this->initialHungriness, $this->tamagotchi->getHungriness());
+        $this->assertLessThan($this->initialTiredness, $this->tamagotchi->getTiredness());
+    }
+
+    /**
+     * @Then it's happiness is increased
+     */
+    public function itSHappinessIsIncreased()
+    {
+        $this->assertGreaterThan($this->initialHappiness, $this->tamagotchi->getHappiness());
     }
 
     /**
@@ -97,5 +135,17 @@ class FeatureContext extends PHPUnit_Framework_TestCase implements Context, Snip
         $this->assertLessThan($this->initialHappiness, $this->tamagotchi->getHappiness());
     }
 
+    /**
+     * @When time passes
+     */
+    public function timePasses()
+    {
+        $oneTickTimer = new Timer(1, 1);
+        $oneTickTimer->attach($this->tamagotchi);
+        $oneTickTimer->start();
+        while (!$oneTickTimer->isStopped()) {
+            // let time pass
+        }
+    }
 
 }
