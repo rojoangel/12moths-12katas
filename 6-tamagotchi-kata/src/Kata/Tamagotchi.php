@@ -2,7 +2,7 @@
 
 namespace Kata;
 
-class Tamagotchi
+class Tamagotchi implements TimeObserver
 {
 
     /** @var int */
@@ -90,5 +90,10 @@ class Tamagotchi
     public function poop()
     {
         $this->fullness--;
+    }
+
+    public function tick(Timer $timer)
+    {
+        // TODO: Implement tick() method.
     }
 }
