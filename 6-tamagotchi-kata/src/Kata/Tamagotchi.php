@@ -1,22 +1,28 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arojomarijuan
- * Date: 8/6/2015
- * Time: 7:45 PM
- */
 
 namespace Kata;
-
 
 class Tamagotchi
 {
 
+    /** @var int */
     private $hungriness;
+
+    /** @var int */
     private $fullness;
+
+    /** @var int */
     private $happiness;
+
+    /** @var int */
     private $tiredness;
 
+    /**
+     * @param int $hungriness
+     * @param int $fullness
+     * @param int $happiness
+     * @param int $tiredness
+     */
     public function __construct($hungriness, $fullness, $happiness, $tiredness)
     {
         $this->hungriness = $hungriness;
@@ -26,7 +32,7 @@ class Tamagotchi
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getHappiness()
     {
@@ -34,25 +40,24 @@ class Tamagotchi
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getTiredness()
     {
         return $this->tiredness;
     }
 
-
-    public function feed()
-    {
-        $this->hungriness--;
-        $this->fullness++;
-    }
-
+    /**
+     * @return int
+     */
     public function getHungriness()
     {
         return $this->hungriness;
     }
 
+    /**
+     * @return int
+     */
     public function getFullness()
     {
         return $this->fullness;
@@ -63,5 +68,27 @@ class Tamagotchi
         $this->tiredness++;
         $this->hungriness++;
         $this->happiness--;
+    }
+
+    public function feed()
+    {
+        $this->hungriness--;
+        $this->fullness++;
+    }
+
+    public function play()
+    {
+        $this->happiness++;
+        $this->tiredness++;
+    }
+
+    public function toBed()
+    {
+        $this->tiredness--;
+    }
+
+    public function poop()
+    {
+        $this->fullness--;
     }
 }
