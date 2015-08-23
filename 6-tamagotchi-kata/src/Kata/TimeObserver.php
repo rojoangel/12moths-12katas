@@ -4,5 +4,5 @@ namespace Kata;
 
 interface TimeObserver
 {
-    public function tick(Timer $timer);
+    public function timePassed(Timer $timer);
 }

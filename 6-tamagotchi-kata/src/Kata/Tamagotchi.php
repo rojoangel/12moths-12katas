@@ -63,7 +63,10 @@ class Tamagotchi implements TimeObserver
         return $this->fullness;
     }
 
-    public function passTime()
+    /**
+     * @param Timer $timer
+     */
+    public function timePassed(Timer $timer)
     {
         $this->tiredness++;
         $this->hungriness++;
@@ -90,10 +93,5 @@ class Tamagotchi implements TimeObserver
     public function poop()
     {
         $this->fullness--;
-    }
-
-    public function tick(Timer $timer)
-    {
-        // TODO: Implement tick() method.
     }
 }
