@@ -2,8 +2,6 @@
 
 namespace Kata;
 
-use Doctrine\Instantiator\Exception\InvalidArgumentException;
-
 class Sql {
 
     public function select($tableName, $columns, $where = null) {
@@ -21,11 +19,11 @@ class Sql {
     public function validateColumns($columns)
     {
         if (empty($columns)) {
-            throw new InvalidArgumentException('Columns are empty!');
+            throw new \InvalidArgumentException('Columns are empty!');
         }
 
         if (!is_array($columns)) {
-            throw new InvalidArgumentException('Columns are invalid!');
+            throw new \InvalidArgumentException('Columns are invalid!');
         }
     }
 
@@ -35,7 +33,7 @@ class Sql {
     public function validateTableName($tableName)
     {
         if (empty($tableName)) {
-            throw new InvalidArgumentException('Table is empty!');
+            throw new \InvalidArgumentException('Table is empty!');
         }
     }
 
