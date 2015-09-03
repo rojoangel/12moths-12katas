@@ -5,4 +5,5 @@ data BinarySearchTree a = EmptyTree | Node a (BinarySearchTree a) (BinarySearchT
 treeInsert :: (Ord a) => a -> BinarySearchTree a -> BinarySearchTree a
 treeInsert x EmptyTree = Node x EmptyTree EmptyTree
 treeInsert x (Node a left right)
-  | x == a = Node x left right
+  | x == a  = Node x left right
+  | x < a   = Node a (treeInsert x left) right
