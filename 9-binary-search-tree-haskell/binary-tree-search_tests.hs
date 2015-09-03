@@ -21,7 +21,10 @@ binaySearchTreeTests =
     , testCase "add single 'Integer' value to empty tree" $
     Node 4 EmptyTree EmptyTree @=? treeInsert 4 EmptyTree
     , testCase "add same value to a Node" $
-      Node 4 EmptyTree EmptyTree @=? treeInsert 4 (Node 4 EmptyTree EmptyTree)
+    Node 4 EmptyTree EmptyTree @=? treeInsert 4 (Node 4 EmptyTree EmptyTree)
     , testCase "add left value to a Node" $
-      Node 4 (Node 3 EmptyTree EmptyTree) EmptyTree @=? treeInsert 3 (Node 4 EmptyTree EmptyTree)
+    Node 4 (Node 3 EmptyTree EmptyTree) EmptyTree @=? treeInsert 3 (Node 4 EmptyTree EmptyTree)
+    , testCase "add left value to a Node" $
+    Node 4 EmptyTree (Node 5 EmptyTree EmptyTree) @=? treeInsert 5 (Node 4 EmptyTree EmptyTree)
+
   ]
