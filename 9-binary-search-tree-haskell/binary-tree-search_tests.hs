@@ -20,6 +20,6 @@ binaySearchTreeTests =
     Node 'A' EmptyTree EmptyTree @=? treeInsert 'A' EmptyTree
     , testCase "add single 'Integer' value to empty tree" $
     Node 4 EmptyTree EmptyTree @=? treeInsert 4 EmptyTree
---  , testCase "no difference between identical strands" $
---    0 @=? hammingDistance "GGACTGA" "GGACTGA"
+    , testCase "add same value to a Node" $
+      Node 4 EmptyTree EmptyTree @=? treeInsert 4 (Node 4 EmptyTree EmptyTree)
   ]
