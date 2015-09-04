@@ -60,4 +60,8 @@ binaySearchTreeTests =
     [1,2] @=? inOrder (Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree)
     , testCase "test inOrder node + left + right" $
     [1,2,3] @=? inOrder (Node 2 (Node 1 EmptyTree EmptyTree) (Node 3 EmptyTree EmptyTree))
+    , testCase "test inOrder long tree 1" $
+    [1,2,3,4,5,6,7,8,9] @=? inOrder (fromList [6,7,8,2,3,9,1,4,5])
+    , testCase "test inOrder long tree 1" $
+    [1,2,3,4,5,6,7,8,9] @=? inOrder (fromList [1,8,6,7,3,9,4,5,2])
   ]
