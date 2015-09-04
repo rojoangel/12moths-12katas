@@ -56,4 +56,6 @@ binaySearchTreeTests =
     [1] @=? inOrder (Node 1 EmptyTree EmptyTree)
     , testCase "test inOrder node + right" $
     [1,2] @=? inOrder (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree))
+    , testCase "test inOrder node + left" $
+    [1,2] @=? inOrder (Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree)
   ]
