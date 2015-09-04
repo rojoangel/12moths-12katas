@@ -14,3 +14,4 @@ fromList = foldr treeInsert EmptyTree
 
 inOrder :: (Ord a) => BinarySearchTree a -> [a]
 inOrder EmptyTree = []
+inOrder (Node a _ _) = [a]

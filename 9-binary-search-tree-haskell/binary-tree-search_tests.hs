@@ -52,4 +52,6 @@ binaySearchTreeTests =
     EmptyTree @=? fromList ([]::[Int]) -- That was tricky ;)
     , testCase "test inOrder empty tree" $
     [] @=? inOrder (EmptyTree::(BinarySearchTree Int))
+    , testCase "test inOrder single node tree" $
+    [1] @=? inOrder (fromList [1])
   ]
