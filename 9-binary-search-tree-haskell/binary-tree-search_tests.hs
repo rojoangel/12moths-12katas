@@ -50,4 +50,6 @@ binaySearchTreeTests =
     Node 1 EmptyTree (Node 2 EmptyTree (Node 3 EmptyTree (Node 4 EmptyTree EmptyTree))) @=? treeInsert 4 (fromList [3,2,1])
     , testCase "test from list empty list" $
     EmptyTree @=? fromList ([]::[Int]) -- That was tricky ;)
+    , testCase "test inOrder empty tree" $
+    [] @=? inOrder (EmptyTree::(BinarySearchTree Int))
   ]
