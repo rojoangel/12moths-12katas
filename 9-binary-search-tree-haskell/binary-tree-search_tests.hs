@@ -29,19 +29,23 @@ binaySearchTreeTests =
     , testCase "tree from list one elem" $
     Node 1 EmptyTree EmptyTree @=? fromList [1]
     , testCase "tree from list one two elements 1" $
-    Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree @=? fromList[1,2]
+    Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree @=? fromList [1,2]
     , testCase "tree from list one two elements 2" $
-    Node 1 EmptyTree (Node 2 EmptyTree EmptyTree) @=? fromList[2,1]
+    Node 1 EmptyTree (Node 2 EmptyTree EmptyTree) @=? fromList [2,1]
     , testCase "tree from list one three elements 1" $
-    Node 3 (Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree) EmptyTree @=? fromList[1,2,3]
+    Node 3 (Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree) EmptyTree @=? fromList [1,2,3]
     , testCase "tree from list one three elements 2" $
-    Node 2 (Node 1 EmptyTree EmptyTree) (Node 3 EmptyTree EmptyTree) @=? fromList[1,3,2]
+    Node 2 (Node 1 EmptyTree EmptyTree) (Node 3 EmptyTree EmptyTree) @=? fromList [1,3,2]
     , testCase "tree from list one three elements 3" $
-    Node 3 (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree)) EmptyTree @=? fromList[2,1,3]
+    Node 3 (Node 1 EmptyTree (Node 2 EmptyTree EmptyTree)) EmptyTree @=? fromList [2,1,3]
     , testCase "tree from list one three elements 4" $
-    Node 1 EmptyTree (Node 3 (Node 2 EmptyTree EmptyTree) EmptyTree) @=? fromList[2,3,1]
+    Node 1 EmptyTree (Node 3 (Node 2 EmptyTree EmptyTree) EmptyTree) @=? fromList [2,3,1]
     , testCase "tree from list one three elements 5" $
-    Node 2 (Node 1 EmptyTree EmptyTree) (Node 3 EmptyTree EmptyTree) @=? fromList[3,1,2]
+    Node 2 (Node 1 EmptyTree EmptyTree) (Node 3 EmptyTree EmptyTree) @=? fromList [3,1,2]
     , testCase "tree from list one three elements 6" $
-    Node 1 EmptyTree (Node 2 EmptyTree (Node 3 EmptyTree EmptyTree)) @=? fromList[3,2,1]
+    Node 1 EmptyTree (Node 2 EmptyTree (Node 3 EmptyTree EmptyTree)) @=? fromList [3,2,1]
+    , testCase "tree insert to three elements 1" $
+    Node 3 (Node 2 (Node 1 EmptyTree EmptyTree) EmptyTree) (Node 4 EmptyTree EmptyTree)  @=? treeInsert 4 (fromList [1,2,3])
+    , testCase "tree insert to three elements 4" $
+    Node 1 EmptyTree (Node 2 EmptyTree (Node 3 EmptyTree (Node 4 EmptyTree EmptyTree))) @=? treeInsert 4 (fromList [3,2,1])
   ]
