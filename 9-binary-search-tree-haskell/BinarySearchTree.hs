@@ -8,3 +8,10 @@ treeInsert x (Node a left right)
   | x == a  = Node x left right
   | x < a   = Node a (treeInsert x left) right
   | x > a   = Node a left (treeInsert x right)
+
+fromList :: (Ord a) => [a] -> BinarySearchTree a
+fromList = foldr treeInsert EmptyTree
+
+inOrder :: (Ord a) => BinarySearchTree a -> [a]
+inOrder EmptyTree = []
+inOrder (Node a left right) = inOrder left ++ a : inOrder right
