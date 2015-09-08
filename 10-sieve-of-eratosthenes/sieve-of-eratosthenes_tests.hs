@@ -28,4 +28,6 @@ binaySearchTreeTests =
     [2,3,5] @=? primes [2..5]
     , testCase "sieve of [2..7]" $
     [2,3,5,7] @=? primes [2..7]
+    , testCase "sieve of [2..11]" $
+    [2,3,5,7,11] @=? primes [2..11]
   ]
