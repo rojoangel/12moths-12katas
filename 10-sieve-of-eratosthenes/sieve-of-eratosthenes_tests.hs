@@ -20,4 +20,6 @@ binaySearchTreeTests =
     [2] @=? primes [2]
     , testCase "sieve of [1]" $
     [] @=? primes [1]
+    , testCase "sieve of []" $
+    [] @=? primes []
   ]
