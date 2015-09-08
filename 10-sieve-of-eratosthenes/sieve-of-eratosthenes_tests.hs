@@ -16,6 +16,8 @@ main = exitProperly $ runTestTT $ TestList
 
 binaySearchTreeTests :: [Test]
 binaySearchTreeTests =
-  [ testCase "sieve of 2" $
+  [ testCase "sieve of [2]" $
     [2] @=? primes [2]
+    , testCase "sieve of [1]" $
+    [] @=? primes [1]
   ]
