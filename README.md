@@ -19,6 +19,7 @@
 * [Bowling Game - via Uncle Bob](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata)
 * [Bank Kata - via Sandro Mancuso](https://github.com/sandromancuso/Bank-kata/blob/master/README.md)
 * [Birthday Greetings kata - hexagonal architecture](http://matteo.vaccari.name/blog/archives/154)
+* [Los Angeles Mastery Cohort Code Katas](https://blog.8thlight.com/2015/06/12/los-angeles-mastery-cohort-code-katas.html
 
 ## kata resources:
 [solveet](http://www.solveet.com/)
