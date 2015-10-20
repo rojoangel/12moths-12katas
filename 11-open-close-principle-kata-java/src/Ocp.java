@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by arojomarijuan on 10/19/2015.
- */
 public class Ocp {
 
     private List<FizzNum> conditions;
