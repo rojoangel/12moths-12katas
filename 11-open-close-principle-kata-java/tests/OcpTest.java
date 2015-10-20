@@ -1,9 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by arojomarijuan on 10/19/2015.
- */
 public class OcpTest {
 
 
